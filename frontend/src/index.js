@@ -8,6 +8,7 @@ import {
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
+import { BrowserRouter } from "react-router-dom";
 
 const link = createHttpLink({
   uri: "https://api.thegraph.com/subgraphs/name/levydlior/try",
@@ -21,9 +22,11 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ApolloProvider client={client}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <BrowserRouter>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
   </ApolloProvider>
 );
 reportWebVitals();
