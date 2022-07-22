@@ -1,22 +1,20 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 function NavBar({ loggedUer, onLogOut }) {
-    // let history = useHistory() 
+  let history = useHistory();
 
-    function handleLogOut(e){
-        e.preventDefault()
-        fetch('/logout', {
-            method: 'DELETE'
-         }).then(r => {
-            if (r.ok) {
-                onLogOut()   
-                
-            }
-         })
-
-    }
-
+  function handleLogOut(e) {
+    e.preventDefault();
+    fetch("/logout", {
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        onLogOut();
+        history.push("/login");
+      }
+    });
+  }
 
   return (
     <div
@@ -26,7 +24,9 @@ function NavBar({ loggedUer, onLogOut }) {
         home
       </NavLink>
       {loggedUer ? (
-        <NavLink to="/" onClick={handleLogOut} >Logout</NavLink>
+        <NavLink to="/" onClick={handleLogOut}>
+          Logout
+        </NavLink>
       ) : (
         <>
           <NavLink style={{ margin: "1rem" }} exact to="/login">

@@ -17,29 +17,28 @@ function App() {
     });
   }, []);
 
- 
-
-  function handleLogOut(){
-    setLoggedUser(null)
+  function handleLogOut() {
+    setLoggedUser(null);
   }
 
   function hanldeLogOrCreate(user) {
     setLoggedUser(user);
   }
+
   return (
     <div className="App">
-      <Header loggedUer={loggedUer} onLogOut={handleLogOut}/>
+      <Header loggedUer={loggedUer} onLogOut={handleLogOut} />
       <Switch>
         <Route exact path="/">
-          <MainPage />
+          {loggedUer ? <MainPage /> : <h2>welcome please log in</h2>}
         </Route>
         <Route path="/login">
-          <Login onLogOrCreate={hanldeLogOrCreate} />
+          <Login onLogOrCreate={hanldeLogOrCreate} loggedUer={loggedUer}/>
         </Route>
         <Route path="/create-an-account">
-          <CreateAccount />
+          <CreateAccount onLogOrCreate={hanldeLogOrCreate} loggedUer={loggedUer}/>
         </Route>
-        <Route path="*">
+        <Route exact path="*">
           <h1>404 not found</h1>
         </Route>
       </Switch>

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import Errors from "./Errors";
 
 function Login({ onLogOrCreate }) {
   const [inputForm, setInputForm] = useState({
     username: "",
     password: "",
   });
-  const [error, setError] = useState([]);
+  const [error, setError] = useState({});
 
   function handleChange(e) {
     const target = e.target.name;
@@ -28,14 +27,14 @@ function Login({ onLogOrCreate }) {
       if (r.ok) {
         r.json().then((user) => {
           onLogOrCreate(user);
-          setError([])
+          setError({});
         });
       } else {
-        r.json().then((err) => setError([err]));
+        r.json().then((err) => setError(err));
       }
     });
   }
-  console.log(error);
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -52,11 +51,8 @@ function Login({ onLogOrCreate }) {
           onChange={handleChange}
         />
         <input type="submit" value="login" />
-        <Errors errors={error} />
+        <h2>{error.error}</h2>
       </form>
-      
-        
-     
     </div>
   );
 }
