@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import CreateAccountForm from "./CreateAccountForm";
 import Errors from "./Errors";
 
-function CreateAccount({ onLogOrCreate, loggedUer }) {
+function CreateAccount({ onLogOrCreate, logedOrCreated }) {
   const [accountForm, setAccountForm] = useState({
     username: "",
     password: "",
@@ -11,6 +12,8 @@ function CreateAccount({ onLogOrCreate, loggedUer }) {
     name: "",
     last_name: "",
   });
+
+  const history = useHistory();
 
   const [errors, setErrors] = useState({ errors: [] });
 
@@ -41,16 +44,26 @@ function CreateAccount({ onLogOrCreate, loggedUer }) {
 
   return (
     <div>
-        {!loggedUer?  
+      {!logedOrCreated ? (
         <>
-         <CreateAccountForm
-        accountForm={accountForm}
-        onInputChange={handleInputChange}
-        onCreateAccount={handleCreateAccount}
-      />
-      <Errors errors={errors.errors} />
-      </>: <h2>Account Created! welcome {loggedUer.username}</h2>
-}
+          <CreateAccountForm
+            accountForm={accountForm}
+            onInputChange={handleInputChange}
+            onCreateAccount={handleCreateAccount}
+          />
+          <button
+        onClick={() => {
+          history.push("/login");
+        }}
+      >
+        Log in
+      </button>
+          <Errors errors={errors.errors} />
+        </>
+      ) : (
+        <h2>Account Created -- welcome! 🧹</h2>
+      )}
+      
     </div>
   );
 }

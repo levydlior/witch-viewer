@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@fontsource/creepster": "^4.5.5",
     "react-router-dom": "^5.3.3"
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, useHistory } from "react-router-dom";
 
-function NavBar({ loggedUer, onLogOut }) {
+function NavBar({ loggedUser, onLogOut }) {
   let history = useHistory();
 
   function handleLogOut(e) {
@@ -20,23 +20,16 @@ function NavBar({ loggedUer, onLogOut }) {
     <div
       style={{ width: "20rem", diplay: "flex", justifyContent: "space-evenly" }}
     >
-      <NavLink style={{ margin: "1rem" }} exact to="/">
-        home
-      </NavLink>
-      {loggedUer ? (
-        <NavLink to="/" onClick={handleLogOut}>
-          Logout
-        </NavLink>
-      ) : (
+      {loggedUser ? (
         <>
-          <NavLink style={{ margin: "1rem" }} exact to="/login">
-            login
+          <NavLink style={{ margin: "1rem" }} exact to="/">
+            home
           </NavLink>
-          <NavLink style={{ margin: "1rem" }} exact to="/create-an-account">
-            Create an account
+          <NavLink to="/" onClick={handleLogOut}>
+            Logout
           </NavLink>
         </>
-      )}
+      ) : null}
     </div>
   );
 }

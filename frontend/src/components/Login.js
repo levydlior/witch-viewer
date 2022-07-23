@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-function Login({ onLogOrCreate }) {
+function Login({ onLogOrCreate, logedOrCreated }) {
   const [inputForm, setInputForm] = useState({
     username: "",
     password: "",
@@ -30,29 +31,49 @@ function Login({ onLogOrCreate }) {
           setError({});
         });
       } else {
-        r.json().then((err) => setError(err));
+        r.json().then((err) => {
+          setInputForm({
+            username: "",
+            password: "",
+          });
+          setError(err);
+        });
       }
     });
   }
 
+  const history = useHistory();
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          name="username"
-          type="text"
-          value={inputForm.username}
-          onChange={handleChange}
-        />
-        <input
-          name="password"
-          type="password"
-          value={inputForm.password}
-          onChange={handleChange}
-        />
-        <input type="submit" value="login" />
-        <h2>{error.error}</h2>
-      </form>
+      {logedOrCreated ? (
+        <>
+          <img src="https://media.giphy.com/media/1xoqtHsB1ISMnPfSpI/giphy.gif" />
+          <h2>Welcome 🧹!</h2>
+        </>
+      ) : (
+        <>
+          <form onSubmit={handleSubmit}>
+            <input
+              name="username"
+              type="text"
+              value={inputForm.username}
+              onChange={handleChange}
+            />
+            <input
+              name="password"
+              type="password"
+              value={inputForm.password}
+              onChange={handleChange}
+            />
+            <input type="submit" value="login" />
+            <h2>{error.error}</h2>
+          </form>
+          <button onClick={() => history.push("/create-account")}>
+            Create an account
+          </button>
+        </>
+      )}
     </div>
   );
 }
