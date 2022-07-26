@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import CreateAccountForm from "./CreateAccountForm";
-import Errors from "./Errors";
 
 function CreateAccount({ onLogOrCreate, logedOrCreated }) {
   const [accountForm, setAccountForm] = useState({
@@ -37,7 +36,7 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
       }
     });
   }
-
+  console.log(errors)
   function handleInputChange(target, value) {
     setAccountForm({ ...accountForm, [target]: value });
   }
@@ -50,6 +49,7 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
             accountForm={accountForm}
             onInputChange={handleInputChange}
             onCreateAccount={handleCreateAccount}
+            errors={errors.errors}
           />
           <div className="login-create-button">
           <button 
@@ -60,7 +60,6 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
             Log in
           </button>
           </div>
-          <Errors errors={errors.errors} />
         </>
       ) : (
         <>

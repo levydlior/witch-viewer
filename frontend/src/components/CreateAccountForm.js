@@ -1,12 +1,16 @@
 import React from "react";
 
-function CreateAccountForm({ accountForm, onInputChange, onCreateAccount }) {
+function CreateAccountForm({ accountForm, onInputChange, onCreateAccount, errors }) {
   function handleChange(e) {
     const target = e.target.name;
     const value = e.target.value;
     onInputChange(target, value);
   }
 
+
+  function spesificError(text){
+    return errors.filter(error => error === text)
+  }
   return (
     <form onSubmit={(e) => onCreateAccount(e)}>
       <input
@@ -17,6 +21,7 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount }) {
         onChange={handleChange}
         required='true'
       />
+      {spesificError("Username has already been taken")}
       <input
         name="password"
         placeholder="password"
@@ -33,6 +38,8 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount }) {
         onChange={handleChange}
         required='true'
       />
+      {spesificError("Email is invalid")}
+      {spesificError("Email has already been taken")}
       <input
         name="avatar"
         placeholder="avatar"
