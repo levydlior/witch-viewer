@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import sucsessWitch from './../gifs/sucsessWitch.gif'
 
 function Login({ onLogOrCreate, logedOrCreated }) {
   const [inputForm, setInputForm] = useState({
@@ -47,10 +48,10 @@ function Login({ onLogOrCreate, logedOrCreated }) {
   return (
     <div className="create-login-div">
       {logedOrCreated ? (
-        <>
-          <img src="https://media.giphy.com/media/1xoqtHsB1ISMnPfSpI/giphy.gif" />
-          <h2>Welcome 🧹!</h2>
-        </>
+        <div className="loged-create-sucsessfuly">
+          <img src={sucsessWitch} alt='happy witch'/>
+          <h2>Welcome 🧹</h2>
+        </div>
       ) : (
         <>
           <form onSubmit={handleSubmit}>

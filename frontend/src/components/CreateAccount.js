@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import CreateAccountForm from "./CreateAccountForm";
+import sucsessWitch from "./../gifs/sucsessWitch.gif";
 
 function CreateAccount({ onLogOrCreate, logedOrCreated }) {
   const [accountForm, setAccountForm] = useState({
@@ -36,7 +37,7 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
       }
     });
   }
-  console.log(errors)
+  console.log(errors);
   function handleInputChange(target, value) {
     setAccountForm({ ...accountForm, [target]: value });
   }
@@ -52,20 +53,20 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
             errors={errors.errors}
           />
           <div className="login-create-button">
-          <button 
-            onClick={() => {
-              history.push("/login");
-            }}
-          >
-            Log in
-          </button>
+            <button
+              onClick={() => {
+                history.push("/login");
+              }}
+            >
+              Log in
+            </button>
           </div>
         </>
       ) : (
-        <>
-          <img src="https://media.giphy.com/media/1xoqtHsB1ISMnPfSpI/giphy.gif" />
-          <h2>Account Created -- welcome! 🧹</h2>
-        </>
+        <div className="loged-create-sucsessfuly">
+          <img src={sucsessWitch} alt="happy witch" />
+          <h2>Account Created -- Welcome 🧹</h2>
+        </div>
       )}
     </div>
   );
