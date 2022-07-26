@@ -52,18 +52,20 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
             onCreateAccount={handleCreateAccount}
           />
           <button
-        onClick={() => {
-          history.push("/login");
-        }}
-      >
-        Log in
-      </button>
+            onClick={() => {
+              history.push("/login");
+            }}
+          >
+            Log in
+          </button>
           <Errors errors={errors.errors} />
         </>
       ) : (
-        <h2>Account Created -- welcome! 🧹</h2>
+        <>
+          <img src="https://media.giphy.com/media/1xoqtHsB1ISMnPfSpI/giphy.gif" />
+          <h2>Account Created -- welcome! 🧹</h2>
+        </>
       )}
-      
     </div>
   );
 }

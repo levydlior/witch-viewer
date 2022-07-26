@@ -1,10 +1,30 @@
-
-*{
-    box-sizing: border-box;
-    font-family: "Creepster";
-    font-weight: 200;
+* {
+  box-sizing: border-box;
+  font-family: "Creepster";
+  font-weight: 200;
 }
 
-body {
-    margin: 0;
+body, html {
+  margin: 0;
+  height: 100%;
+}
+
+.create-login-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+form {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 20%;
+    padding: 0.5rem;
+    margin: 0.5rem;
 }

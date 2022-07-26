@@ -45,7 +45,7 @@ function Login({ onLogOrCreate, logedOrCreated }) {
   const history = useHistory();
 
   return (
-    <div>
+    <div className="create-login-div">
       {logedOrCreated ? (
         <>
           <img src="https://media.giphy.com/media/1xoqtHsB1ISMnPfSpI/giphy.gif" />
