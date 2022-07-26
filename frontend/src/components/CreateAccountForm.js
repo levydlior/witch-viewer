@@ -15,6 +15,7 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount }) {
         type="text"
         value={accountForm.username}
         onChange={handleChange}
+        required='true'
       />
       <input
         name="password"
@@ -22,6 +23,7 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount }) {
         type="password"
         value={accountForm.password}
         onChange={handleChange}
+        required='true'
       />
       <input
         name="email"
@@ -29,6 +31,7 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount }) {
         type="text"
         value={accountForm.email}
         onChange={handleChange}
+        required='true'
       />
       <input
         name="avatar"
@@ -36,6 +39,7 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount }) {
         type="text"
         value={accountForm.avatar}
         onChange={handleChange}
+        required='true'
       />
       <input
         name="name"
@@ -43,6 +47,7 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount }) {
         type="text"
         value={accountForm.name}
         onChange={handleChange}
+        required='true'
       />
       <input
         name="last_name"
@@ -50,8 +55,9 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount }) {
         type="text"
         value={accountForm.last_name}
         onChange={handleChange}
+        required='true'
       />
-      <input type="submit" placeholder="username" value="create accound" />
+      <input type="submit" placeholder="username" value="create account" />
     </form>
   );
 }

@@ -43,7 +43,7 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
   }
 
   return (
-    <div>
+    <div id="createAccount-div">
       {!logedOrCreated ? (
         <>
           <CreateAccountForm
@@ -51,13 +51,15 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
             onInputChange={handleInputChange}
             onCreateAccount={handleCreateAccount}
           />
-          <button
+          <div className="login-create-button">
+          <button 
             onClick={() => {
               history.push("/login");
             }}
           >
             Log in
           </button>
+          </div>
           <Errors errors={errors.errors} />
         </>
       ) : (

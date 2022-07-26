@@ -59,19 +59,25 @@ function Login({ onLogOrCreate, logedOrCreated }) {
               type="text"
               value={inputForm.username}
               onChange={handleChange}
+              required='true'
             />
             <input
               name="password"
               type="password"
               value={inputForm.password}
               onChange={handleChange}
+              required='true'
             />
             <input type="submit" value="login" />
             <h2>{error.error}</h2>
           </form>
-          <button onClick={() => history.push("/create-account")}>
+          <div className="login-create-button">
+          <button
+            onClick={() => history.push("/create-account")}
+          >
             Create an account
           </button>
+          </div>
         </>
       )}
     </div>
