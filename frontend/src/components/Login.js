@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import sucsessWitch from './../gifs/sucsessWitch.gif'
+import sucsessWitch from "./../gifs/sucsessWitch.gif";
 
 function Login({ onLogOrCreate, logedOrCreated }) {
   const [inputForm, setInputForm] = useState({
@@ -49,8 +49,8 @@ function Login({ onLogOrCreate, logedOrCreated }) {
     <div className="create-login-div">
       {logedOrCreated ? (
         <div className="loged-create-sucsessfuly">
-          <img src={sucsessWitch} alt='happy witch'/>
           <h2>Welcome 🧹</h2>
+          <img src={sucsessWitch} alt="happy witch" />
         </div>
       ) : (
         <>
@@ -73,11 +73,9 @@ function Login({ onLogOrCreate, logedOrCreated }) {
             <h2>{error.error}</h2>
           </form>
           <div className="login-create-button">
-          <button
-            onClick={() => history.push("/create-account")}
-          >
-            Create an account
-          </button>
+            <button onClick={() => history.push("/create-account")}>
+              Create an account
+            </button>
           </div>
         </>
       )}

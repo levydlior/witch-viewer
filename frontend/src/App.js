@@ -6,12 +6,11 @@ import Login from "./components/Login";
 import CreateAccount from "./components/CreateAccount";
 import Header from "./components/Header";
 import { useHistory } from "react-router-dom";
-import "@fontsource/creepster";
 import "./styles/app.css";
 
 function App() {
   const [loggedUser, setLoggedUser] = useState(null);
-  const [auth, setAuth] = useState(false)
+  const [auth, setAuth] = useState(false);
   const [logedOrCreated, setLogedOrCreated] = useState(false);
   const [likedWitches, setLikedWitches] = useState([]);
 
@@ -19,24 +18,26 @@ function App() {
     fetch("/users/show").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          setAuth(true)
-          setLoggedUser(user)});
-      }else{
-        setAuth(true)
+          setAuth(true);
+          setLoggedUser(user);
+        });
+      } else {
+        setAuth(true);
       }
     });
   }, []);
 
-  useEffect(() => {
-    fetch("/likes").then((r) => {
-      if (r.ok) {
-        r.json().then((witchesArray) => setLikedWitches(witchesArray));
-      }
-    });
-  }, [loggedUser], [logedOrCreated]);
-
-
-
+  useEffect(
+    () => {
+      fetch("/likes").then((r) => {
+        if (r.ok) {
+          r.json().then((witchesArray) => setLikedWitches(witchesArray));
+        }
+      });
+    },
+    [loggedUser],
+    [logedOrCreated]
+  );
 
   function handleLogOut() {
     setLoggedUser(null);
@@ -65,10 +66,9 @@ function App() {
     }, 1500);
   }
 
-
- if(!auth){
-  return <div></div>
- }
+  if (!auth) {
+    return <div></div>;
+  }
 
   return (
     <div className="App">
