@@ -19,7 +19,7 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount, errors
         type="text"
         value={accountForm.username}
         onChange={handleChange}
-        required='true'
+        required={true}
       />
       {spesificError("Username has already been taken")}
       <input
@@ -28,7 +28,7 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount, errors
         type="password"
         value={accountForm.password}
         onChange={handleChange}
-        required='true'
+        required={true}
       />
       <input
         name="email"
@@ -36,7 +36,7 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount, errors
         type="text"
         value={accountForm.email}
         onChange={handleChange}
-        required='true'
+        required={true}
       />
       {spesificError("Email is invalid")}
       {spesificError("Email has already been taken")}
@@ -46,7 +46,7 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount, errors
         type="text"
         value={accountForm.avatar}
         onChange={handleChange}
-        required='true'
+        required={true}
       />
       <input
         name="name"
@@ -54,7 +54,7 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount, errors
         type="text"
         value={accountForm.name}
         onChange={handleChange}
-        required='true'
+        required={true}
       />
       <input
         name="last_name"
@@ -62,7 +62,7 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount, errors
         type="text"
         value={accountForm.last_name}
         onChange={handleChange}
-        required='true'
+        required={true}
       />
       <input type="submit" placeholder="username" value="create account" />
     </form>

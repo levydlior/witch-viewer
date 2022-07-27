@@ -4,7 +4,7 @@ import WitchCard from "./WitchCard";
 
 const WITCH = gql`
   query {
-    tokens(first: 20) {
+    tokens(first: 10) {
       type
       name
       image
@@ -14,9 +14,11 @@ const WITCH = gql`
     }
   }
 `;
-function MainPage() {
+
+function MainPage({ likedWitches, onLikeOrUnlike }) {
   const [witches, setWitches] = useState([]);
   const [skip, setSkip] = React.useState(false);
+
 
   const { loading, data } = useQuery(WITCH, { skip });
 
@@ -29,16 +31,22 @@ function MainPage() {
   }, [data, loading]);
 
   const witchList = witches.map((witch) => {
-    return <WitchCard witch={witch} key={witch.toeknID} />;
+    return (
+      <WitchCard
+        witch={witch}
+        key={witch.name}
+        likedWitches={likedWitches}
+        onLikeOrUnlike={onLikeOrUnlike}
+      />
+    );
   });
 
-  console.log(witches);
 
   if (loading) return <></>;
 
   return (
     <div className="main-page-witches">
-      {loading ? <h2>Gathering the witches!</h2> : <>{ witchList }</>}
+      {loading ? <h2>Gathering the witches!</h2> : <>{witchList}</>}
     </div>
   );
 }

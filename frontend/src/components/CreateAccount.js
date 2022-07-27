@@ -23,7 +23,7 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        accept: "application/json",
+        "accept": "application/json",
       },
       body: JSON.stringify(accountForm),
     }).then((r) => {
@@ -37,7 +37,6 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
       }
     });
   }
-  console.log(errors);
   function handleInputChange(target, value) {
     setAccountForm({ ...accountForm, [target]: value });
   }

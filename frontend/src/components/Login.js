@@ -60,14 +60,14 @@ function Login({ onLogOrCreate, logedOrCreated }) {
               type="text"
               value={inputForm.username}
               onChange={handleChange}
-              required='true'
+              required={true}
             />
             <input
               name="password"
               type="password"
               value={inputForm.password}
               onChange={handleChange}
-              required='true'
+              required={true}
             />
             <input type="submit" value="login" />
             <h2>{error.error}</h2>
