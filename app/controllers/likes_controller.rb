@@ -14,13 +14,11 @@ class LikesController < ApplicationController
     like = Like.find_by(witch_id: params[:id], user_id: session[:user_id])
     witch = like.witch
     like.destroy
-    
-   
-    
+
     if witch.likes.length == 0
       witch.destroy
     end
-    
+
     render json: witch
   end
 

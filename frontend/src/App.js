@@ -11,13 +11,18 @@ import "./styles/app.css";
 
 function App() {
   const [loggedUser, setLoggedUser] = useState(null);
+  const [auth, setAuth] = useState(false)
   const [logedOrCreated, setLogedOrCreated] = useState(false);
   const [likedWitches, setLikedWitches] = useState([]);
 
   useEffect(() => {
     fetch("/users/show").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setLoggedUser(user));
+        r.json().then((user) => {
+          setAuth(true)
+          setLoggedUser(user)});
+      }else{
+        setAuth(true)
       }
     });
   }, []);
@@ -59,6 +64,11 @@ function App() {
       history.push("/");
     }, 1500);
   }
+
+
+ if(!auth){
+  return <div></div>
+ }
 
   return (
     <div className="App">
