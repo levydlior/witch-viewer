@@ -15,7 +15,7 @@ const WITCH = gql`
   }
 `;
 
-function MainPage({ likedWitches, onLikeOrUnlike }) {
+function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
   const [witches, setWitches] = useState([]);
   const [skip, setSkip] = React.useState(false);
 
@@ -37,6 +37,7 @@ function MainPage({ likedWitches, onLikeOrUnlike }) {
         key={witch.name}
         likedWitches={likedWitches}
         onLikeOrUnlike={onLikeOrUnlike}
+        loadingLikedWitches={loadingLikedWitches}
       />
     );
   });

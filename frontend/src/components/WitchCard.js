@@ -2,7 +2,12 @@ import React from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-function WitchCard({ witch, likedWitches, onLikeOrUnlike }) {
+function WitchCard({
+  witch,
+  likedWitches,
+  onLikeOrUnlike,
+  loadingLikedWitches,
+}) {
   let witchId = null;
 
   const renderLikeOrNot = () => {
@@ -55,12 +60,18 @@ function WitchCard({ witch, likedWitches, onLikeOrUnlike }) {
 
   return (
     <div className="witch-card">
-      <h3>{witch.name}</h3>
-      <img style={{ width: "100px", height: "100px" }} src={witch.image} />
-      {renderLikeOrNot() ? (
-        <FavoriteIcon onClick={handleUnlike} />
+      {loadingLikedWitches ? (
+        <h3>Catching witches</h3>
       ) : (
-        <FavoriteBorderIcon onClick={handleLikeClick} />
+        <>
+          <h3>{witch.name}</h3>
+          <img style={{ width: "100px", height: "100px" }} src={witch.image} />
+          {renderLikeOrNot() ? (
+            <FavoriteIcon onClick={handleUnlike} />
+          ) : (
+            <FavoriteBorderIcon onClick={handleLikeClick} />
+          )}
+        </>
       )}
     </div>
   );

@@ -13,6 +13,7 @@ function App() {
   const [auth, setAuth] = useState(false);
   const [logedOrCreated, setLogedOrCreated] = useState(false);
   const [likedWitches, setLikedWitches] = useState([]);
+  const [loadingLikedWitches, setLoadingLikedWitches] = useState(true)
 
   useEffect(() => {
     fetch("/users/show").then((r) => {
@@ -29,9 +30,13 @@ function App() {
 
   useEffect(
     () => {
+      setLoadingLikedWitches(true)
       fetch("/likes").then((r) => {
         if (r.ok) {
-          r.json().then((witchesArray) => setLikedWitches(witchesArray));
+          r.json().then((witchesArray) => {
+            setLikedWitches(witchesArray)
+            setLoadingLikedWitches(false)
+          });
         }
       });
     },
@@ -80,6 +85,7 @@ function App() {
             <MainPage
               likedWitches={likedWitches}
               onLikeOrUnlike={onLikeOrUnlike}
+            loadingLikedWitches={loadingLikedWitches}
             />
           </Route>
         ) : (
