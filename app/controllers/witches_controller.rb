@@ -1,0 +1,2 @@
+class WitchesController < ApplicationController
+end
