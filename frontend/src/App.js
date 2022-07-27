@@ -49,8 +49,8 @@ function App() {
       (liked) => liked.id === witch.id
     );
     if (existedLikedWitch) {
-      const updateWitchs = likedWitches.filter((like) => like.id !== witch.id);
-      setLikedWitches(updateWitchs);
+      const updateWitches = likedWitches.filter((like) => like.id !== witch.id);
+      setLikedWitches(updateWitches);
     } else {
       setLikedWitches([...likedWitches, witch]);
     }
@@ -58,7 +58,7 @@ function App() {
 
   const history = useHistory();
 
-  function hanldeLogOrCreate(user) {
+  function handleLogOrCreate(user) {
     setLogedOrCreated(user);
     setTimeout(() => {
       setLoggedUser(user);
@@ -86,19 +86,19 @@ function App() {
           <>
             <Route path="/login">
               <Login
-                onLogOrCreate={hanldeLogOrCreate}
+                onLogOrCreate={handleLogOrCreate}
                 logedOrCreated={logedOrCreated}
               />
             </Route>
             <Route exact path="/">
               <CreateAccount
-                onLogOrCreate={hanldeLogOrCreate}
+                onLogOrCreate={handleLogOrCreate}
                 logedOrCreated={logedOrCreated}
               />
             </Route>
             <Route path="/create-account">
               <CreateAccount
-                onLogOrCreate={hanldeLogOrCreate}
+                onLogOrCreate={handleLogOrCreate}
                 logedOrCreated={logedOrCreated}
               />
             </Route>
