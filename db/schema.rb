@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_27_025505) do
+ActiveRecord::Schema.define(version: 2022_07_28_150755) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "witch_id", null: false
@@ -33,12 +33,9 @@ ActiveRecord::Schema.define(version: 2022_07_27_025505) do
   end
 
   create_table "witches", force: :cascade do |t|
-    t.string "type_of_witch"
     t.string "name"
     t.string "image"
-    t.string "description"
     t.string "tokenID"
-    t.string "externalURL"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

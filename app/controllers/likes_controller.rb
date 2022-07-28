@@ -25,6 +25,6 @@ class LikesController < ApplicationController
   private
 
   def like_params
-    params.permit(:type_of_witch, :name, :image, :description, :tokenID, :externalURL)
+    params.permit(:name, :image, :tokenID)
   end
 end

@@ -4,7 +4,7 @@ import WitchCard from "./WitchCard";
 
 const WITCH = gql`
   query {
-    tokens(first: 1) {
+    tokens(first: 10) {
       type
       name
       image
