@@ -1,6 +1,8 @@
 import React from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 function WitchCard({
   witch,
@@ -42,7 +44,6 @@ function WitchCard({
 
   renderLikeOrNot();
 
-  console.log("witch token:", typeof witch.tokenID);
 
   function handleUnlike() {
     fetch(`/likes/${witchId}`, {
@@ -59,7 +60,7 @@ function WitchCard({
   return (
     <div className="witch-card">
       {loadingLikedWitches ? (
-        <h3>Catching witches</h3>
+         <CircularProgress />
       ) : (
         <>
           <h3>{witch.name}</h3>
