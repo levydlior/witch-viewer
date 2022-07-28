@@ -9,10 +9,10 @@ function WitchCard({
   loadingLikedWitches,
 }) {
   let witchId = null;
-
   const renderLikeOrNot = () => {
     for (let like = 0; like < likedWitches.length; like++) {
-      if (likedWitches[like].name === witch.name) {
+   
+      if (likedWitches[like].tokenID === witch.tokenID) {
         witchId = likedWitches[like].id;
         return true;
       }
@@ -45,6 +45,8 @@ function WitchCard({
   }
 
   renderLikeOrNot();
+
+console.log("witch token:", typeof(witch.tokenID))
 
   function handleUnlike() {
     fetch(`/likes/${witchId}`, {

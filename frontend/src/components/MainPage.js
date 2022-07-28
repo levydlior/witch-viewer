@@ -4,7 +4,7 @@ import WitchCard from "./WitchCard";
 
 const WITCH = gql`
   query {
-    tokens(first: 10) {
+    tokens(first: 1) {
       type
       name
       image
@@ -18,7 +18,6 @@ const WITCH = gql`
 function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
   const [witches, setWitches] = useState([]);
   const [skip, setSkip] = React.useState(false);
-
 
   const { loading, data } = useQuery(WITCH, { skip });
 
@@ -41,9 +40,6 @@ function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
       />
     );
   });
-
-
-  if (loading) return <></>;
 
   return (
     <div className="main-page-witches">
