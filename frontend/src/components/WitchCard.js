@@ -1,8 +1,7 @@
 import React from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import CircularProgress from '@mui/material/CircularProgress';
-
+import CircularProgress from "@mui/material/CircularProgress";
 
 function WitchCard({
   witch,
@@ -44,7 +43,6 @@ function WitchCard({
 
   renderLikeOrNot();
 
-
   function handleUnlike() {
     fetch(`/likes/${witchId}`, {
       method: "DELETE",
@@ -60,7 +58,7 @@ function WitchCard({
   return (
     <div className="witch-card">
       {loadingLikedWitches ? (
-         <CircularProgress />
+        <CircularProgress />
       ) : (
         <>
           <h3>{witch.name}</h3>

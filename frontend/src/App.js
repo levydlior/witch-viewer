@@ -7,13 +7,14 @@ import CreateAccount from "./components/CreateAccount";
 import Header from "./components/Header";
 import { useHistory } from "react-router-dom";
 import "./styles/app.css";
+import WitchDetailsPopUp from "./components/WitchDetailsPopUp";
 
 function App() {
   const [loggedUser, setLoggedUser] = useState(null);
   const [auth, setAuth] = useState(false);
   const [logedOrCreated, setLogedOrCreated] = useState(false);
   const [likedWitches, setLikedWitches] = useState([]);
-  const [loadingLikedWitches, setLoadingLikedWitches] = useState(true)
+  const [loadingLikedWitches, setLoadingLikedWitches] = useState(true);
 
   useEffect(() => {
     fetch("/users/show").then((r) => {
@@ -30,12 +31,12 @@ function App() {
 
   useEffect(
     () => {
-      setLoadingLikedWitches(true)
+      setLoadingLikedWitches(true);
       fetch("/likes").then((r) => {
         if (r.ok) {
           r.json().then((witchesArray) => {
-            setLikedWitches(witchesArray)
-            setLoadingLikedWitches(false)
+            setLikedWitches(witchesArray);
+            setLoadingLikedWitches(false);
           });
         }
       });
@@ -81,13 +82,18 @@ function App() {
 
       <Switch>
         {loggedUser ? (
-          <Route exact path="/">
-            <MainPage
-              likedWitches={likedWitches}
-              onLikeOrUnlike={onLikeOrUnlike}
-            loadingLikedWitches={loadingLikedWitches}
-            />
-          </Route>
+          <>
+            <Route exact path="/">
+              <MainPage
+                likedWitches={likedWitches}
+                onLikeOrUnlike={onLikeOrUnlike}
+                loadingLikedWitches={loadingLikedWitches}
+              />
+            </Route>
+            <Route path="/popup">
+              <WitchDetailsPopUp />
+            </Route>
+          </>
         ) : (
           <>
             <Route path="/login">
