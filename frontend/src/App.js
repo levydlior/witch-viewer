@@ -80,9 +80,9 @@ function App() {
     <div className="App">
       <Header loggedUser={loggedUser} onLogOut={handleLogOut} />
 
-      <Switch>
-        {loggedUser ? (
-          <>
+      {loggedUser ? (
+        <>
+          <Switch>
             <Route exact path="/">
               <MainPage
                 likedWitches={likedWitches}
@@ -93,9 +93,14 @@ function App() {
             <Route path="/popup">
               <WitchDetailsPopUp />
             </Route>
-          </>
-        ) : (
-          <>
+            <Route exact path="*">
+              <h1>404 not found</h1>
+            </Route>
+          </Switch>
+        </>
+      ) : (
+        <>
+          <Switch>
             <Route path="/login">
               <Login
                 onLogOrCreate={handleLogOrCreate}
@@ -114,13 +119,12 @@ function App() {
                 logedOrCreated={logedOrCreated}
               />
             </Route>
-          </>
-        )}
-
-        <Route exact path="*">
-          <h1>404 not found</h1>
-        </Route>
-      </Switch>
+            <Route exact path="*">
+              <h1>404 not found</h1>
+            </Route>
+          </Switch>
+        </>
+      )}
     </div>
   );
 }
