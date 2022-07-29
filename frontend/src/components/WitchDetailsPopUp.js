@@ -6,21 +6,6 @@ import React, { useState, useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const WITCHDETAIL = gql`
-  {
-    tokens(where: { tokenID: "1" }) {
-      name
-      image
-      tokenID
-      description
-      externalURL
-      owner {
-        id
-      }
-    }
-  }
-`;
-
 const style = {
   position: "absolute",
   top: "50%",
@@ -33,10 +18,26 @@ const style = {
   p: 4,
 };
 
-export default function WitchDetailsPopUp() {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+export default function WitchDetailsPopUp({ witchToken, opening, onClosing }) {
+  const WITCHDETAIL = gql`
+  {
+    tokens(where: { tokenID: "${witchToken}" }) {
+      name
+      image
+      tokenID
+      description
+      externalURL
+      owner {
+        id
+      }
+    }
+  }
+`;
+
+  const handleClose = (e) => {
+    e.stopPropagation();
+    onClosing(e);
+  };
   const [skip, setSkip] = React.useState(false);
 
   const [witch, setWitch] = useState(null);
@@ -50,33 +51,26 @@ export default function WitchDetailsPopUp() {
     }
   }, [data, loading]);
 
-  console.log(witch);
-
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
-        open={open}
+        open={opening}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} id="targetDetail">
           {!witch ? (
             <CircularProgress />
           ) : (
             <>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                <h2>{witch.name}</h2>
-              </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                <img id="details-image" src={witch.image} alt="Witch Image" />
-                <p>{witch.description}</p>
-                <p>Owner: {witch.owner.id} </p>
-                <a href={witch.externalURL} target="_blank">
-                  Link to source
-                </a>
-              </Typography>
+              <h2>{witch.name}</h2>
+              <img id="details-image" src={witch.image} alt="Witch Image" />
+              <p>{witch.description}</p>
+              <p>Owner: {witch.owner.id} </p>
+              <a href={witch.externalURL} target="_blank">
+                Link to source
+              </a>
             </>
           )}
         </Box>

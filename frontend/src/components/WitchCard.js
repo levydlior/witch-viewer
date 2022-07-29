@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import CircularProgress from "@mui/material/CircularProgress";
+import WitchDetailsPopUp from "./WitchDetailsPopUp";
 
 function WitchCard({
   witch,
@@ -9,6 +10,8 @@ function WitchCard({
   onLikeOrUnlike,
   loadingLikedWitches,
 }) {
+  const [open, setOpen] = useState(false);
+
   let witchId = null;
   const renderLikeOrNot = () => {
     for (let like = 0; like < likedWitches.length; like++) {
@@ -20,7 +23,8 @@ function WitchCard({
     return false;
   };
 
-  function handleLikeClick() {
+  function handleLikeClick(e) {
+    e.stopPropagation();
     const witchObject = {
       name: witch.name,
       image: witch.image,
@@ -43,7 +47,8 @@ function WitchCard({
 
   renderLikeOrNot();
 
-  function handleUnlike() {
+  function handleUnlike(e) {
+    e.stopPropagation();
     fetch(`/likes/${witchId}`, {
       method: "DELETE",
     }).then((r) => {
@@ -55,8 +60,14 @@ function WitchCard({
     });
   }
 
+  function handleDivClick() {
+    setOpen(true);
+  }
+  function handleOutDivClick() {
+    setOpen(false);
+  }
   return (
-    <div className="witch-card">
+    <div className="witch-card" onClick={handleDivClick}>
       {loadingLikedWitches ? (
         <CircularProgress />
       ) : (
@@ -68,6 +79,11 @@ function WitchCard({
           ) : (
             <FavoriteBorderIcon onClick={handleLikeClick} />
           )}
+          <WitchDetailsPopUp
+            witchToken={witch.tokenID}
+            opening={open}
+            onClosing={handleOutDivClick}
+          />
         </>
       )}
     </div>
