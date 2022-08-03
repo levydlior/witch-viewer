@@ -1,34 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap");
 * {
   box-sizing: border-box;
-  font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
-body, html {
+body,
+html {
   margin: 0;
   height: 100%;
 }
 
-.create-login-div{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
+.create-login-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 input {
-    width: 20%;
-    padding: 0.5rem;
-    margin: 0.5rem;
+  width: 20%;
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 
-#createAccount-div{
+#createAccount-div {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -37,7 +38,6 @@ input {
 .login-create-button {
   display: flex;
   justify-content: center;
-
 }
 
 .loged-create-sucsessfuly {
@@ -47,7 +47,7 @@ input {
   align-items: center;
 }
 
-.main-page-witches{
+.main-page-witches {
   display: flex;
   justify-content: center;
   height: 100%;
@@ -63,7 +63,7 @@ input {
   width: 12%;
   align-items: center;
   justify-content: center;
-  transition: transform .2s;
+  transition: transform 0.2s;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -73,15 +73,26 @@ input {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-#details-image{
+#details-image {
   width: 100%;
   height: 100%;
 }
 
 .heart {
-  transition: transform .2s
+  transition: transform 0.2s;
 }
 .heart:hover {
   transform: scale(1.1);
   cursor: pointer;
+}
+
+#witch-list-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#main-page-title {
+  display: flex;
+  justify-content: center;
 }

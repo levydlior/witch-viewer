@@ -15,29 +15,22 @@ const WITCH = gql`
 `;
 
 function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
-  const [witches, setWitches] = useState([]);
-
   const { loading, data, fetchMore } = useQuery(WITCH, {
     variables: { first: 36 },
   });
-  useEffect(() => {
-    if (!loading && !!data) {
-      setWitches(data.tokens);
-    }
-  }, [data, loading]);
 
   if (loading) return <CircularProgress />;
 
   const witchList = data.tokens.map((witch, item) => {
     return (
       <React.Fragment key={witch.tokenID}>
-        {item === witches.length - 1 && (
+        {item === data.tokens.length - 1 && (
           <Waypoint
             onEnter={() =>
               fetchMore({
                 variables: {
                   first: 36,
-                  skip: witches.length,
+                  skip: data.tokens.length,
                 },
                 updateQuery: (pv, fetchMoreResults) => {
                   if (!fetchMoreResults) {
@@ -66,7 +59,12 @@ function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
 
   return (
     <div className="main-page-witches">
-      {loading ? <h2>Gathering the witches!</h2> : <>{witchList}</>}
+      <div id="main-page-title">
+        <h2>The witches:</h2>
+      </div>
+      <div id="witch-list-container">
+        {loading ? <h2>Gathering the witches!</h2> : <>{witchList}</>}
+      </div>
     </div>
   );
 }
