@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import CircularProgress from "@mui/material/CircularProgress";
 import WitchDetailsPopUp from "./WitchDetailsPopUp";
 import Heart from "./Heart";

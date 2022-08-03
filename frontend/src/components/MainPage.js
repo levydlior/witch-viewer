@@ -1,43 +1,66 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import WitchCard from "./WitchCard";
+import { Waypoint } from "react-waypoint";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const WITCH = gql`
-  query {
-    tokens(first: 10) {
-      type
+  query Token($first: Int!, $skip: Int) {
+    tokens(first: $first, skip: $skip) {
       name
       image
-      description
       tokenID
-      externalURL
     }
   }
 `;
 
 function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
   const [witches, setWitches] = useState([]);
-  const [skip, setSkip] = React.useState(false);
 
-  const { loading, data } = useQuery(WITCH, { skip });
-
+  const { loading, data, fetchMore } = useQuery(WITCH, {
+    variables: { first: 36 },
+  });
   useEffect(() => {
-    // check whether data exists
     if (!loading && !!data) {
-      setSkip(true);
       setWitches(data.tokens);
     }
   }, [data, loading]);
 
-  const witchList = witches.map((witch) => {
+  if (loading) return <CircularProgress />;
+
+  const witchList = data.tokens.map((witch, item) => {
     return (
-      <WitchCard
-        witch={witch}
-        key={witch.name}
-        likedWitches={likedWitches}
-        onLikeOrUnlike={onLikeOrUnlike}
-        loadingLikedWitches={loadingLikedWitches}
-      />
+      <React.Fragment key={witch.tokenID}>
+        {item === witches.length - 1 && (
+          <Waypoint
+            onEnter={() =>
+              fetchMore({
+                variables: {
+                  first: 36,
+                  skip: witches.length,
+                },
+                updateQuery: (pv, fetchMoreResults) => {
+                  if (!fetchMoreResults) {
+                    return pv;
+                  }
+                  return {
+                    tokens: [
+                      ...pv.tokens,
+                      ...fetchMoreResults.fetchMoreResult.tokens,
+                    ],
+                  };
+                },
+              })
+            }
+          />
+        )}
+        <WitchCard
+          witch={witch}
+          likedWitches={likedWitches}
+          onLikeOrUnlike={onLikeOrUnlike}
+          loadingLikedWitches={loadingLikedWitches}
+        />
+      </React.Fragment>
     );
   });
 
