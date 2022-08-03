@@ -3,6 +3,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import CircularProgress from "@mui/material/CircularProgress";
 import WitchDetailsPopUp from "./WitchDetailsPopUp";
+import Heart from "./Heart";
 
 function WitchCard({
   witch,
@@ -74,15 +75,24 @@ function WitchCard({
         <>
           <h3>{witch.name}</h3>
           <img style={{ width: "100px", height: "100px" }} src={witch.image} />
-          {renderLikeOrNot() ? (
+          <Heart
+            renderLikeOrNot={renderLikeOrNot}
+            handleUnlike={handleUnlike}
+            handleLikeClick={handleLikeClick}
+          />
+
+          {/* {renderLikeOrNot() ? (
             <FavoriteIcon onClick={handleUnlike} />
           ) : (
             <FavoriteBorderIcon onClick={handleLikeClick} />
-          )}
+          )} */}
           <WitchDetailsPopUp
             witchToken={witch.tokenID}
             opening={open}
             onClosing={handleOutDivClick}
+            renderLikeOrNot={renderLikeOrNot}
+            handleUnlike={handleUnlike}
+            handleLikeClick={handleLikeClick}
           />
         </>
       )}

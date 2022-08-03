@@ -5,6 +5,7 @@ import Modal from "@mui/material/Modal";
 import React, { useState, useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 import CircularProgress from "@mui/material/CircularProgress";
+import Heart from "./Heart";
 
 const style = {
   position: "absolute",
@@ -18,7 +19,14 @@ const style = {
   p: 4,
 };
 
-export default function WitchDetailsPopUp({ witchToken, opening, onClosing }) {
+export default function WitchDetailsPopUp({
+  witchToken,
+  opening,
+  onClosing,
+  renderLikeOrNot,
+  handleUnlike,
+  handleLikeClick,
+}) {
   const WITCHDETAIL = gql`
   {
     tokens(where: { tokenID: "${witchToken}" }) {
@@ -64,6 +72,11 @@ export default function WitchDetailsPopUp({ witchToken, opening, onClosing }) {
             <CircularProgress />
           ) : (
             <>
+              <Heart 
+                renderLikeOrNot={renderLikeOrNot}
+                handleUnlike={handleUnlike}
+                handleLikeClick={handleLikeClick}
+              />
               <h2>{witch.name}</h2>
               <img id="details-image" src={witch.image} alt="Witch Image" />
               <p>{witch.description}</p>
