@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import { useHistory } from "react-router-dom";
 import "./styles/app.css";
 import WitchDetailsPopUp from "./components/WitchDetailsPopUp";
+import MyLikedWitches from "./components/MyLikedWitches";
 
 function App() {
   const [loggedUser, setLoggedUser] = useState(null);
@@ -83,15 +84,19 @@ function App() {
       {loggedUser ? (
         <>
           <Switch>
+            <Route exact path="/my-favorite-witches">
+              <MyLikedWitches
+                likedWitches={likedWitches}
+                onLikeOrUnlike={onLikeOrUnlike}
+                loadingLikedWitches={loadingLikedWitches}
+              />
+            </Route>
             <Route exact path="/">
               <MainPage
                 likedWitches={likedWitches}
                 onLikeOrUnlike={onLikeOrUnlike}
                 loadingLikedWitches={loadingLikedWitches}
               />
-            </Route>
-            <Route path="/popup">
-              <WitchDetailsPopUp />
             </Route>
             <Route exact path="*">
               <h1>404 not found</h1>

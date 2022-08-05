@@ -109,7 +109,7 @@ input {
 }
 
 #reg-nav {
-  width: 20rem;
+  width: 30rem;
   display: flex;
   justify-content: space-evenly;
 }
@@ -118,4 +118,19 @@ input {
   display: flex;
   justify-content: space-between;
   width: 10rem;
+}
+
+#my-fav-witches {
+  padding-top: 5rem;
+}
+
+
+a {
+  text-decoration: none;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.selected{
+  color: black;
 }

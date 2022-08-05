@@ -20,8 +20,11 @@ function NavBar({ loggedUser, onLogOut }) {
     <div id="reg-nav">
       {loggedUser ? (
         <div id="nav-links">
-          <NavLink exact to="/">
+          <NavLink exact to="/" activeClassName="selected">
             home
+          </NavLink>
+          <NavLink exact to="/my-favorite-witches" activeClassName="selected">
+            My Favorites
           </NavLink>
           <NavLink to="/" onClick={handleLogOut}>
             Logout
