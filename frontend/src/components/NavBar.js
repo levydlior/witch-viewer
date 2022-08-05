@@ -17,18 +17,16 @@ function NavBar({ loggedUser, onLogOut }) {
   }
 
   return (
-    <div
-      style={{ width: "20rem", diplay: "flex", justifyContent: "space-evenly" }}
-    >
+    <div id="reg-nav">
       {loggedUser ? (
-        <>
-          <NavLink style={{ margin: "1rem" }} exact to="/">
+        <div id="nav-links">
+          <NavLink exact to="/">
             home
           </NavLink>
           <NavLink to="/" onClick={handleLogOut}>
             Logout
           </NavLink>
-        </>
+        </div>
       ) : null}
     </div>
   );

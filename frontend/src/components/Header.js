@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 
 function Header({loggedUser, onLogOut}) {
   return (
-    <div style={{ borderBottom: "solid 1px", height: "5rem" }}>
+    <div id="web-header">
       <NavBar loggedUser={loggedUser} onLogOut={onLogOut}/>
     </div>
   );

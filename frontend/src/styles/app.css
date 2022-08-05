@@ -14,7 +14,6 @@ html {
   display: flex;
   justify-content: center;
   flex-direction: column;
-
   height: 80vh;
 }
 
@@ -53,6 +52,7 @@ input {
   justify-content: center;
   height: 100%;
   flex-wrap: wrap;
+  padding-top: 5rem;
 }
 
 .witch-card {
@@ -72,6 +72,7 @@ input {
   transform: scale(1.1);
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
 }
 
 #details-image {
@@ -98,4 +99,23 @@ input {
   justify-content: center;
 }
 
+#web-header {
+  border-bottom: 1px solid;
+  height: 5rem;
+  position: fixed;
+  background-color: #ffffff;
+  width: 100%;
+  z-index: 1;
+}
 
+#reg-nav {
+  width: 20rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#nav-links {
+  display: flex;
+  justify-content: space-between;
+  width: 10rem;
+}
