@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import sucsessWitch from "./../gifs/sucsessWitch.gif";
+import TextField from "@mui/material/TextField";
+import Alert from '@mui/material/Alert';
+import Button from '@mui/material/Button';
+
 
 function Login({ onLogOrCreate, logedOrCreated }) {
   const [inputForm, setInputForm] = useState({
     username: "",
     password: "",
   });
-  const [error, setError] = useState({});
+  const [error, setError] = useState(null);
 
   function handleChange(e) {
     const target = e.target.name;
@@ -55,27 +59,35 @@ function Login({ onLogOrCreate, logedOrCreated }) {
       ) : (
         <>
           <form onSubmit={handleSubmit}>
-            <input
-              name="username"
+            <TextField
+              sx={{margin: "1rem"}}
+              id="outlined-search"
+              label="User name"
               type="text"
+              name="username"
               value={inputForm.username}
               onChange={handleChange}
               required={true}
             />
-            <input
+            <TextField
+            sx={{margin: "1rem"}}
+              id="outlined-search"
+              label="Password"
               name="password"
               type="password"
               value={inputForm.password}
               onChange={handleChange}
               required={true}
             />
-            <input type="submit" value="login" />
-            <h2>{error.error}</h2>
+            <div style={{width: "13rem"}}>
+            <Button variant="outlined" type="submit" sx={{marginTop: "1rem", marginBottom: "1rem", width: "100%"}}>Login</Button>
+            </div>
+            {error? <Alert severity="error">{error.error}</Alert> : null}
+            
+
           </form>
           <div className="login-create-button">
-            <button onClick={() => history.push("/create-account")}>
-              Create an account
-            </button>
+          <Button variant="outlined" onClick={() => history.push("/create-account")}>Don't have an account?</Button>
           </div>
         </>
       )}

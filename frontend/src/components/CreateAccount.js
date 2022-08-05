@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import CreateAccountForm from "./CreateAccountForm";
 import sucsessWitch from "./../gifs/sucsessWitch.gif";
+import Button from "@mui/material/Button";
+
+
 
 function CreateAccount({ onLogOrCreate, logedOrCreated }) {
   const [accountForm, setAccountForm] = useState({
     username: "",
     password: "",
     email: "",
-    avatar: "",
-    name: "",
-    last_name: "",
   });
 
   const history = useHistory();
@@ -42,7 +42,7 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
   }
 
   return (
-    <div id="createAccount-div">
+    <div className="create-login-div">
       {!logedOrCreated ? (
         <>
           <CreateAccountForm
@@ -52,13 +52,8 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
             errors={errors.errors}
           />
           <div className="login-create-button">
-            <button
-              onClick={() => {
-                history.push("/login");
-              }}
-            >
-              Log in
-            </button>
+            <Button variant="outlined" onClick={() => history.push("/login")}>Already have an account!</Button>
+
           </div>
         </>
       ) : (

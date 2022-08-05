@@ -1,38 +1,61 @@
 import React from "react";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 
-function CreateAccountForm({ accountForm, onInputChange, onCreateAccount, errors }) {
+function CreateAccountForm({
+  accountForm,
+  onInputChange,
+  onCreateAccount,
+  errors,
+}) {
   function handleChange(e) {
     const target = e.target.name;
     const value = e.target.value;
     onInputChange(target, value);
   }
 
-
-  function spesificError(text){
-    return errors.filter(error => error === text)
+  function spesificError(text) {
+    let er;
+    errors.forEach((error) => {
+      if (error === text) {
+        er = error;
+        return er;
+      }
+    });
+    if (er) {
+      return <Alert severity="error">{er}</Alert>;
+    }
   }
+
   return (
     <form onSubmit={(e) => onCreateAccount(e)}>
-      <input
+      <TextField
+        sx={{ margin: "1rem" }}
+        id="outlined-search"
         name="username"
-        placeholder="username"
+        label="User name"
         type="text"
         value={accountForm.username}
         onChange={handleChange}
         required={true}
       />
       {spesificError("Username has already been taken")}
-      <input
+      <TextField
+        sx={{ margin: "1rem" }}
+        id="outlined-search"
         name="password"
-        placeholder="password"
+        label="password"
         type="password"
         value={accountForm.password}
         onChange={handleChange}
         required={true}
       />
-      <input
+      <TextField
+        sx={{ margin: "1rem" }}
+        id="outlined-search"
         name="email"
-        placeholder="email"
+        label="Email"
         type="text"
         value={accountForm.email}
         onChange={handleChange}
@@ -40,31 +63,11 @@ function CreateAccountForm({ accountForm, onInputChange, onCreateAccount, errors
       />
       {spesificError("Email is invalid")}
       {spesificError("Email has already been taken")}
-      <input
-        name="avatar"
-        placeholder="avatar"
-        type="text"
-        value={accountForm.avatar}
-        onChange={handleChange}
-        required={true}
-      />
-      <input
-        name="name"
-        placeholder="First Name"
-        type="text"
-        value={accountForm.name}
-        onChange={handleChange}
-        required={true}
-      />
-      <input
-        name="last_name"
-        placeholder="Last Name"
-        type="text"
-        value={accountForm.last_name}
-        onChange={handleChange}
-        required={true}
-      />
-      <input type="submit" placeholder="username" value="create account" />
+      <div style={{width: "14.5rem"}}>
+      <Button variant="outlined" type="submit" sx={{marginTop: "1rem", marginBottom: "1rem", width: "100%"}}>Create an account</Button>
+      </div>
+
+
     </form>
   );
 }
