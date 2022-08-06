@@ -52,7 +52,6 @@ input {
   justify-content: center;
   height: 100%;
   flex-wrap: wrap;
-  padding-top: 5rem;
 }
 
 .witch-card {
@@ -97,15 +96,18 @@ input {
 #main-page-title {
   display: flex;
   justify-content: center;
+  margin-top: 3rem;
 }
 
 #web-header {
   border-bottom: 1px solid;
-  height: 5rem;
+  height: 8rem;
   position: fixed;
   background-color: #ffffff;
   width: 100%;
   z-index: 1;
+  display: flex;
+  justify-content: space-between;
 }
 
 #reg-nav {
@@ -117,8 +119,8 @@ input {
 #nav-links {
   display: flex;
   justify-content: space-between;
-  width: 10rem;
-}
+  width: 40rem;
+align-items: center;}
 
 #my-fav-witches {
   padding-top: 5rem;
@@ -128,9 +130,23 @@ input {
 a {
   text-decoration: none;
   margin: 0.5rem;
-  padding: 0.5rem;
+  padding: 3rem;
 }
 
 .selected{
   color: black;
+}
+
+#logo-img{
+width: 18rem;
+height: 100%;
+}
+
+#logo-title{
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  flex-direction: column;
 }
