@@ -66,6 +66,7 @@ input {
   transition: transform 0.2s;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 15px;
+  height: 14rem;
 }
 
 .witch-card:hover {
@@ -134,8 +135,13 @@ a {
   text-decoration: none;
 }
 
+a:hover{
+  color: gray;
+}
+
 .selected{
   color: black;
+  text-decoration: solid black
 }
 
 #logo-img{
