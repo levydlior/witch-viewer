@@ -26,6 +26,9 @@ function NavBar({ loggedUser, onLogOut }) {
           <NavLink exact to="/my-favorite-witches" activeClassName="selected">
             My Favorites
           </NavLink>
+          <NavLink exact to="/popular-witches" activeClassName="selected">
+            Popular Witches
+          </NavLink>
           <NavLink to="/" onClick={handleLogOut}>
             Logout
           </NavLink>

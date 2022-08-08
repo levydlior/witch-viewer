@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import "./styles/app.css";
 import WitchDetailsPopUp from "./components/WitchDetailsPopUp";
 import MyLikedWitches from "./components/MyLikedWitches";
+import PopularWitches from "./components/PopularWitches";
 
 function App() {
   const [loggedUser, setLoggedUser] = useState(null);
@@ -84,6 +85,10 @@ function App() {
       {loggedUser ? (
         <>
           <Switch>
+            <Route path="/popular-witches">
+              <PopularWitches likedWitches={likedWitches} onLikeOrUnlike={onLikeOrUnlike} loadingLikedWitches={loadingLikedWitches}
+/>
+            </Route>
             <Route exact path="/my-favorite-witches">
               <MyLikedWitches
                 likedWitches={likedWitches}
