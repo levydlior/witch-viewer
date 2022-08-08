@@ -24,6 +24,9 @@ function PopularWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
     );
   });
 
+
+  console.log(popularWitches)
+
   return (
     <div id="my-fav-witches">
       <div id="main-page-title">
