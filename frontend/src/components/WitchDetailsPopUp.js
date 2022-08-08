@@ -80,7 +80,7 @@ export default function WitchDetailsPopUp({
               <img id="details-image" src={witch.image} alt="Witch Image" />
               <p>{witch.description}</p>
               <div id="owner">
-              <a href={`https://etherscan.io/address/${witch.owner.id}`} target="_blank" >Owner transactions</a>
+              <a href={`https://opensea.io/assets/ethereum/0x5180db8f5c931aae63c74266b211f580155ecac8/${witch.tokenID}`} target="_blank" >I want to buy it!</a>
               {/* <p> Owner: {witch.owner.id} </p> */}
               </div>
               <a href={witch.externalURL} target="_blank">
