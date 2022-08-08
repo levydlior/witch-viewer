@@ -19,7 +19,14 @@ function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
     variables: { first: 36 },
   });
 
-  if (loading) return <CircularProgress />;
+  if (loading)
+    return (
+      <div className="main-page-witches">
+        <div id="main-page-title">
+          <h2>Gathering the witches!</h2> <CircularProgress sx={{marginTop: "0.5rem"}}/>
+        </div>
+      </div>
+    );
 
   const witchList = data.tokens.map((witch, item) => {
     return (
