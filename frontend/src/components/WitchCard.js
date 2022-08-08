@@ -8,6 +8,7 @@ function WitchCard({
   likedWitches,
   onLikeOrUnlike,
   loadingLikedWitches,
+  numberOfLikes = null,
 }) {
   const [open, setOpen] = useState(false);
 
@@ -74,6 +75,7 @@ function WitchCard({
           <div className="witch-title">
             <h3>{witch.name}</h3>
           </div>
+          {numberOfLikes ? <p>Has {numberOfLikes} likes</p> : null}
           <img style={{ width: "100px", height: "100px" }} src={witch.image} />
           <div className="heart-card">
             <Heart

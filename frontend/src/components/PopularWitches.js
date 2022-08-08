@@ -20,6 +20,7 @@ function PopularWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
         onLikeOrUnlike={onLikeOrUnlike}
         loadingLikedWitches={loadingLikedWitches}
         key={witch.tokenID}
+        numberOfLikes={witch.number_of_likes}
       />
     );
   });
