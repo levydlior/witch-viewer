@@ -98,7 +98,7 @@ input {
 #main-page-title {
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 
 #web-header {
@@ -114,7 +114,7 @@ input {
 }
 
 #reg-nav {
-  width: 21rem;
+  width: 46rem;
   display: flex;
   justify-content: space-evenly;
 }
@@ -124,6 +124,11 @@ input {
   justify-content: space-between;
   width: 15rem;
   align-items: center;
+}
+
+.links{
+  margin-inline: 2rem;
+  width: 4rem;
 }
 
 #my-fav-witches {
