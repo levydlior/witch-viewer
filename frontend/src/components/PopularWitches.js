@@ -22,7 +22,6 @@ console.log(popularWitches)
         onLikeOrUnlike={onLikeOrUnlike}
         loadingLikedWitches={loadingLikedWitches}
         key={witch.tokenID}
-        numberOfLikes={witch.number_of_likes}
       />
     )      
   };

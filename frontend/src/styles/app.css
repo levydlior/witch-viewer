@@ -58,22 +58,42 @@ input {
 .witch-card {
   display: flex;
   flex-direction: column;
-  margin: 0.5rem;
-  border: solid 1px;
-  width: 11rem;
+  margin-inline: 3rem;
+  margin-top: 1rem;
+  width: 20rem;
   align-items: center;
   justify-content: center;
   transition: transform 0.2s;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 15px;
-  height: 16rem;
+  height: 23rem;
+  overflow: hidden;
+  
 }
 
-.witch-card:hover {
-  transform: scale(1.1);
+.witch-img{
+  width: 100%;
+  height: 90%;
+  border-start-end-radius: 15px;
+  border-start-start-radius: 15px;
+  transition: transform 0.7s;
+  
+}
+
+.image-div-card{
+  display: block;
+  width: 100%;
+
+  object-fit: contain;
+}
+
+.witch-card:hover .witch-img {
+  transform: scale(1.2);
+}
+
+.witch-card:hover{
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  position: relative;
+
 }
 
 #details-image {
@@ -168,12 +188,11 @@ h1 {
 
 .witch-title{
   display: flex;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  height: 50%;
-  padding-inline: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 19rem;
 }
+
 
 /* .heart-card{
   display: flex;

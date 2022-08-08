@@ -8,7 +8,6 @@ function WitchCard({
   likedWitches,
   onLikeOrUnlike,
   loadingLikedWitches,
-  numberOfLikes = null,
 }) {
   const [open, setOpen] = useState(false);
 
@@ -72,17 +71,23 @@ function WitchCard({
         <CircularProgress />
       ) : (
         <>
-          <div className="witch-title">
-            <h3>{witch.name}</h3>
+          <div className="image-div-card">
+          <img
+            className="witch-img"
+            src={witch.image}
+            alt={witch.name}
+          />
           </div>
-          {numberOfLikes ? <p>Has {numberOfLikes} likes</p> : null}
-          <img style={{ width: "100px", height: "100px" }} src={witch.image} />
           <div className="heart-card">
-            <Heart
+            <div className="witch-title">
+              <h3>{witch.name}</h3>
+              <Heart
               renderLikeOrNot={renderLikeOrNot}
               handleUnlike={handleUnlike}
               handleLikeClick={handleLikeClick}
             />
+            </div>
+       
           </div>
           <WitchDetailsPopUp
             witchToken={witch.tokenID}
