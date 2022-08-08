@@ -11,9 +11,9 @@ function PopularWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
       }
     });
   }, [likedWitches]);
-
+console.log(popularWitches)
   const popularWitchesList = popularWitches.map((witch) => {
-    if (witch.number_of_likes > 5){
+    if (witch.number_of_likes >= 5){
 
     return (
       <WitchCard
