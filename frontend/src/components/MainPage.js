@@ -23,7 +23,7 @@ function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
     return (
       <div className="main-page-witches">
         <div id="main-page-title">
-          <h2>Gathering the witches!</h2> <CircularProgress sx={{marginTop: "0.5rem"}}/>
+          <h2>Gathering the witches!</h2> <CircularProgress sx={{margin: "0.5rem"}}/>
         </div>
       </div>
     );

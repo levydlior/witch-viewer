@@ -153,9 +153,7 @@ input {
   width: 4rem;
 }
 
-#my-fav-witches {
-  padding: 0.5rem;
-}
+
 
 
 a {
@@ -210,4 +208,42 @@ h1 {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+}
+
+.burger-nav{
+  display: none;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+  .burger-nav{
+    display: flex;
+    align-items: center;
+  }
+  #burger-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #reg-nav{
+    display: none;
+  }
+
+  #nav-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 15rem;
+    margin-top: 1rem
+
+  }
+
+  .witch-card:hover .witch-img {
+    transform: scale(1);
+  }
+  
+
 }

@@ -28,7 +28,7 @@ console.log(popularWitches)
   });
 
   return (
-    <div id="my-fav-witches">
+    <div className="main-page-witches">
       <div id="main-page-title">
         <h2>Most Popular Witches</h2>
       </div>

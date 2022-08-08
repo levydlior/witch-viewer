@@ -15,7 +15,7 @@ function MyLikedWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
   });
 
   return (
-    <div id="my-fav-witches">
+    <div className="main-page-witches">
       <div id="main-page-title">
         <h2>My Favorite Witches</h2>
       </div>
