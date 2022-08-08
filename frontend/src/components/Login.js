@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import sucsessWitch from "./../gifs/sucsessWitch.gif";
 import TextField from "@mui/material/TextField";
-import Alert from '@mui/material/Alert';
-import Button from '@mui/material/Button';
-
+import Alert from "@mui/material/Alert";
+import Button from "@mui/material/Button";
 
 function Login({ onLogOrCreate, logedOrCreated }) {
   const [inputForm, setInputForm] = useState({
@@ -58,9 +57,12 @@ function Login({ onLogOrCreate, logedOrCreated }) {
         </div>
       ) : (
         <>
+          <div id="main-page-title">
+            <h2>Login in to your witch viewer account</h2>
+          </div>
           <form onSubmit={handleSubmit}>
             <TextField
-              sx={{margin: "1rem"}}
+              sx={{ margin: "1rem" }}
               id="outlined-search"
               label="User name"
               type="text"
@@ -70,7 +72,7 @@ function Login({ onLogOrCreate, logedOrCreated }) {
               required={true}
             />
             <TextField
-            sx={{margin: "1rem"}}
+              sx={{ margin: "1rem" }}
               id="outlined-search"
               label="Password"
               name="password"
@@ -79,15 +81,37 @@ function Login({ onLogOrCreate, logedOrCreated }) {
               onChange={handleChange}
               required={true}
             />
-            <div style={{width: "13.5rem"}}>
-            <Button variant="outlined" type="submit" sx={{marginTop: "1rem", marginBottom: "1rem", width: "100%", textTransform: 'none'}}>Login</Button>
+            <div style={{ width: "13.5rem" }}>
+              <Button
+                variant="outlined"
+                type="submit"
+                sx={{
+                  marginTop: "1rem",
+                  marginBottom: "1rem",
+                  width: "100%",
+                  textTransform: "none",
+                }}
+              >
+                Login
+              </Button>
             </div>
-            {error? <Alert sx={{marginBottom: '1rem', width: "13.5rem"}} severity="error">{error.error}</Alert> : null}
-            
-
+            {error ? (
+              <Alert
+                sx={{ marginBottom: "1rem", width: "13.5rem" }}
+                severity="error"
+              >
+                {error.error}
+              </Alert>
+            ) : null}
           </form>
           <div className="login-create-button">
-          <Button sx={{textTransform: 'none', width: "13.5rem" }} variant="outlined" onClick={() => history.push("/create-account")}>Don't have an account?</Button>
+            <Button
+              sx={{ textTransform: "none", width: "13.5rem" }}
+              variant="outlined"
+              onClick={() => history.push("/create-account")}
+            >
+              Don't have an account?
+            </Button>
           </div>
         </>
       )}

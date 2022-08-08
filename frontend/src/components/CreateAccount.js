@@ -4,8 +4,6 @@ import CreateAccountForm from "./CreateAccountForm";
 import sucsessWitch from "./../gifs/sucsessWitch.gif";
 import Button from "@mui/material/Button";
 
-
-
 function CreateAccount({ onLogOrCreate, logedOrCreated }) {
   const [accountForm, setAccountForm] = useState({
     username: "",
@@ -23,7 +21,7 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        "accept": "application/json",
+        accept: "application/json",
       },
       body: JSON.stringify(accountForm),
     }).then((r) => {
@@ -45,6 +43,9 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
     <div className="create-login-div">
       {!logedOrCreated ? (
         <>
+          <div id="main-page-title">
+            <h2>Create your witch viewer account account.</h2>
+          </div>
           <CreateAccountForm
             accountForm={accountForm}
             onInputChange={handleInputChange}
@@ -52,15 +53,19 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
             errors={errors.errors}
           />
           <div className="login-create-button">
-            <Button sx={{textTransform: 'none', width: "13.5rem" }} variant="outlined" onClick={() => history.push("/login")}>Already have an account!</Button>
-
+            <Button
+              sx={{ textTransform: "none", width: "13.5rem" }}
+              variant="outlined"
+              onClick={() => history.push("/login")}
+            >
+              Already have an account
+            </Button>
           </div>
         </>
       ) : (
         <div className="loged-create-sucsessfuly">
           <h2>Account Created -- Welcome 🧹</h2>
           <img src={sucsessWitch} alt="happy witch" />
-          
         </div>
       )}
     </div>
