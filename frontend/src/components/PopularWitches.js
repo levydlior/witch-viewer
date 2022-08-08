@@ -13,6 +13,8 @@ function PopularWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
   }, [likedWitches]);
 
   const popularWitchesList = popularWitches.map((witch) => {
+    if (witch.number_of_likes > 5){
+
     return (
       <WitchCard
         witch={witch}
@@ -22,7 +24,8 @@ function PopularWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
         key={witch.tokenID}
         numberOfLikes={witch.number_of_likes}
       />
-    );
+    )      
+  };
   });
 
   return (
