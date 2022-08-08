@@ -133,6 +133,8 @@ input {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
+
+
 #reg-nav {
   width: 46rem;
   display: flex;
@@ -179,6 +181,10 @@ padding: 0.5rem;
   display: flex;
   justify-content: center;
   text-align: end;
+}
+
+#logo-title:hover {
+  cursor: pointer;
 }
 
 h1 {
