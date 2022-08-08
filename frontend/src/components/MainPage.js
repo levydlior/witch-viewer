@@ -60,7 +60,7 @@ function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
   return (
     <div className="main-page-witches">
       <div id="main-page-title">
-        <h2>The Witches:</h2>
+        <h2>The Witches</h2>
       </div>
       <div id="witch-list-container">
         {loading ? <h2>Gathering the witches!</h2> : <>{witchList}</>}
