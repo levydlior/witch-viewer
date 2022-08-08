@@ -79,15 +79,15 @@ function Login({ onLogOrCreate, logedOrCreated }) {
               onChange={handleChange}
               required={true}
             />
-            <div style={{width: "13rem"}}>
-            <Button variant="outlined" type="submit" sx={{marginTop: "1rem", marginBottom: "1rem", width: "100%"}}>Login</Button>
+            <div style={{width: "13.5rem"}}>
+            <Button variant="outlined" type="submit" sx={{marginTop: "1rem", marginBottom: "1rem", width: "100%", textTransform: 'none'}}>Login</Button>
             </div>
-            {error? <Alert severity="error">{error.error}</Alert> : null}
+            {error? <Alert sx={{marginBottom: '1rem', width: "13.5rem"}} severity="error">{error.error}</Alert> : null}
             
 
           </form>
           <div className="login-create-button">
-          <Button variant="outlined" onClick={() => history.push("/create-account")}>Don't have an account?</Button>
+          <Button sx={{textTransform: 'none', width: "13.5rem" }} variant="outlined" onClick={() => history.push("/create-account")}>Don't have an account?</Button>
           </div>
         </>
       )}

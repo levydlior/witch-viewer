@@ -21,7 +21,7 @@ function NavBar({ loggedUser, onLogOut }) {
       {loggedUser ? (
         <div id="nav-links">
           <NavLink exact to="/" activeClassName="selected">
-            Home
+            Explore
           </NavLink>
           <NavLink exact to="/my-favorite-witches" activeClassName="selected">
             My Favorites

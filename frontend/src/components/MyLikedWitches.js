@@ -9,6 +9,7 @@ function MyLikedWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
         likedWitches={likedWitches}
         onLikeOrUnlike={onLikeOrUnlike}
         loadingLikedWitches={loadingLikedWitches}
+        key={witch.tokenID}
       />
     );
   });

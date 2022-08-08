@@ -46,10 +46,9 @@ export default function WitchDetailsPopUp({
     e.stopPropagation();
     onClosing(e);
   };
+
   const [skip, setSkip] = React.useState(false);
-
   const [witch, setWitch] = useState(null);
-
   const { loading, data } = useQuery(WITCHDETAIL, { skip });
 
   useEffect(() => {
@@ -72,7 +71,7 @@ export default function WitchDetailsPopUp({
             <CircularProgress />
           ) : (
             <>
-              <Heart 
+              <Heart
                 renderLikeOrNot={renderLikeOrNot}
                 handleUnlike={handleUnlike}
                 handleLikeClick={handleLikeClick}
@@ -80,7 +79,10 @@ export default function WitchDetailsPopUp({
               <h2>{witch.name}</h2>
               <img id="details-image" src={witch.image} alt="Witch Image" />
               <p>{witch.description}</p>
-              <p>Owner: {witch.owner.id} </p>
+              <div id="owner">
+              <a href={`https://etherscan.io/address/${witch.owner.id}`} target="_blank" >Owner transactions</a>
+              {/* <p> Owner: {witch.owner.id} </p> */}
+              </div>
               <a href={witch.externalURL} target="_blank">
                 Link to source
               </a>

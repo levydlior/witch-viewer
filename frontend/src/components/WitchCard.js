@@ -71,19 +71,17 @@ function WitchCard({
         <CircularProgress />
       ) : (
         <>
-          <h3>{witch.name}</h3>
+          <div className="witch-title">
+            <h3>{witch.name}</h3>
+          </div>
           <img style={{ width: "100px", height: "100px" }} src={witch.image} />
-          <Heart
-            renderLikeOrNot={renderLikeOrNot}
-            handleUnlike={handleUnlike}
-            handleLikeClick={handleLikeClick}
-          />
-
-          {/* {renderLikeOrNot() ? (
-            <FavoriteIcon onClick={handleUnlike} />
-          ) : (
-            <FavoriteBorderIcon onClick={handleLikeClick} />
-          )} */}
+          <div className="heart-card">
+            <Heart
+              renderLikeOrNot={renderLikeOrNot}
+              handleUnlike={handleUnlike}
+              handleLikeClick={handleLikeClick}
+            />
+          </div>
           <WitchDetailsPopUp
             witchToken={witch.tokenID}
             opening={open}

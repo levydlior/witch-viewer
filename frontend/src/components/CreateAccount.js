@@ -52,7 +52,7 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
             errors={errors.errors}
           />
           <div className="login-create-button">
-            <Button variant="outlined" onClick={() => history.push("/login")}>Already have an account!</Button>
+            <Button sx={{textTransform: 'none', width: "13.5rem" }} variant="outlined" onClick={() => history.push("/login")}>Already have an account!</Button>
 
           </div>
         </>
