@@ -17,6 +17,7 @@ Witch.create(name: "nyx", image: "https://cryptocoven.s3.amazonaws.com/nyx.png",
 Witch.create(name: "antimony katana", image: "https://cryptocoven.s3.amazonaws.com/bb12f3612ccf17c55783736c958c94a9.png",tokenID: "100")
 Witch.create(name: "crone orchard", image: "https://cryptocoven.s3.amazonaws.com/40dd579e80b524c5774aa8cb003faca6.png", tokenID: "1011")
 Witch.create(name: "mistress gallium", image: "https://cryptocoven.s3.amazonaws.com/35b63b7ac602d6a70fa4f829343bb042.png", tokenID: "1104")
+Witch.create(name: "jasmine of the woods", image: "https://cryptocoven.s3.amazonaws.com/cbdab8464f4c305b3f596083faf70dca.png", tokenID: "1092")
 
 
 Like.create(witch_id: 1, user_id: 1)
@@ -35,6 +36,12 @@ Like.create(witch_id: 3, user_id: 2)
 Like.create(witch_id: 3, user_id: 3)
 Like.create(witch_id: 3, user_id: 4)
 Like.create(witch_id: 3, user_id: 5)
+Like.create(witch_id: 5, user_id: 1)
+Like.create(witch_id: 5, user_id: 2)
+Like.create(witch_id: 5, user_id: 3)
+Like.create(witch_id: 5, user_id: 4)
+Like.create(witch_id: 5, user_id: 5)
+
 
 
 puts "Done seeding! :)"

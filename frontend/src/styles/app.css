@@ -54,6 +54,7 @@ input {
   justify-content: center;
   height: 100%;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .witch-card {
@@ -171,7 +172,6 @@ a:hover{
 }
 
 #logo-img{
-width: 100%rem;
 height: 100%;
 padding: 0.5rem;
 }
@@ -218,7 +218,7 @@ h1 {
 
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .burger-nav{
     display: flex;
     align-items: center;
@@ -245,6 +245,21 @@ h1 {
   .witch-card:hover .witch-img {
     transform: scale(1);
   }
-  
+
+
+
+  #targetDetail{
+    width: 300px;
+  }
+ 
+
+  .witch-card{
+    margin-inline: 0;
+  }
+
+  #login-create-title{
+    padding: 0 2rem;
+    margin: 0 4rem;
+  }
 
 }

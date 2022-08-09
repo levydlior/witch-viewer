@@ -58,7 +58,7 @@ function Login({ onLogOrCreate, logedOrCreated }) {
       ) : (
         <>
           <div id="main-page-title">
-            <h2>Login in to your witch viewer account</h2>
+            <h2 id="login-create-title">Login in to your account</h2>
           </div>
           <form onSubmit={handleSubmit}>
             <TextField
