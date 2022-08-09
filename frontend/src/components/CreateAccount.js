@@ -64,7 +64,7 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
         </>
       ) : (
         <div className="loged-create-sucsessfuly">
-          <h2>Account Created -- Welcome 🧹</h2>
+          <h2 id="main-page-title">Account Created -- Welcome 🧹</h2>
           <img src={sucsessWitch} alt="happy witch" />
         </div>
       )}

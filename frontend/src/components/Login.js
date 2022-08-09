@@ -52,7 +52,7 @@ function Login({ onLogOrCreate, logedOrCreated }) {
     <div className="create-login-div">
       {logedOrCreated ? (
         <div className="loged-create-sucsessfuly">
-          <h2>Welcome 🧹</h2>
+          <h2 id="main-page-title">Welcome 🧹</h2>
           <img src={sucsessWitch} alt="happy witch" />
         </div>
       ) : (
