@@ -24,7 +24,11 @@ function CreateAccountForm({
       }
     });
     if (er) {
-      return <Alert sx={{width: "13.5rem"}} severity="error">{er}</Alert>;
+      return (
+        <Alert sx={{ width: "13.5rem" }} severity="error">
+          {er}
+        </Alert>
+      );
     }
   }
 
@@ -63,11 +67,20 @@ function CreateAccountForm({
       />
       {spesificError("Email is invalid")}
       {spesificError("Email has already been taken")}
-      <div style={{width: "13.5rem"}}>
-      <Button variant="outlined" type="submit" sx={{marginTop: "1rem", marginBottom: "1rem", width: "100%", textTransform: 'none' }}>Create an account</Button>
+      <div style={{ width: "13.5rem" }}>
+        <Button
+          variant="outlined"
+          type="submit"
+          sx={{
+            marginTop: "1rem",
+            marginBottom: "1rem",
+            width: "100%",
+            textTransform: "none",
+          }}
+        >
+          Create an account
+        </Button>
       </div>
-
-
     </form>
   );
 }

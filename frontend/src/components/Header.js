@@ -7,7 +7,7 @@ import SideBurgerMenu from "./SideBurgerMenu";
 function Header({ loggedUser, onLogOut }) {
   const history = useHistory();
   return (
-    <div id="web-header">
+    <div id="web-header" data-testid="header">
       <div id="logo-title" onClick={() => history.push("/")}>
         <img id="logo-img" src={logo} alt="Witch flying" />
         <h1>Witch Viewer</h1>

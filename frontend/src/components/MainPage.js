@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import WitchCard from "./WitchCard";
 import { Waypoint } from "react-waypoint";
@@ -23,7 +23,8 @@ function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
     return (
       <div className="main-page-witches">
         <div id="main-page-title">
-          <h2>Gathering the witches!</h2> <CircularProgress sx={{margin: "0.5rem"}}/>
+          <h2>Gathering the witches!</h2>{" "}
+          <CircularProgress sx={{ margin: "0.5rem" }} />
         </div>
       </div>
     );

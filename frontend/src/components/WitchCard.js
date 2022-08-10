@@ -66,7 +66,7 @@ function WitchCard({
     setOpen(false);
   }
   return (
-    <div className="witch-card" onClick={handleDivClick}>
+    <div className="witch-card" onClick={handleDivClick} data-testid="witchCard">
       {loadingLikedWitches ? (
         <CircularProgress />
       ) : (

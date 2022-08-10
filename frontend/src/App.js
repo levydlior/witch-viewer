@@ -7,7 +7,6 @@ import CreateAccount from "./components/CreateAccount";
 import Header from "./components/Header";
 import { useHistory } from "react-router-dom";
 import "./styles/app.css";
-import WitchDetailsPopUp from "./components/WitchDetailsPopUp";
 import MyLikedWitches from "./components/MyLikedWitches";
 import PopularWitches from "./components/PopularWitches";
 
@@ -75,17 +74,17 @@ function App() {
   }
 
   if (!auth) {
-    return <div></div>;
+    return <div data-testid="app-components"></div>;
   }
 
   return (
-    <div className="App">
+    <div className="App" data-testid="app-components">
       <Header loggedUser={loggedUser} onLogOut={handleLogOut} />
 
       {loggedUser ? (
         <>
           <Switch>
-            <Route path="/popular-witches">
+            <Route path="/popular-witches" data-testid="pop-witch-route">
               <PopularWitches likedWitches={likedWitches} onLikeOrUnlike={onLikeOrUnlike} loadingLikedWitches={loadingLikedWitches}
 />
             </Route>

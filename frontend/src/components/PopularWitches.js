@@ -12,18 +12,17 @@ function PopularWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
     });
   }, [likedWitches]);
   const popularWitchesList = popularWitches.map((witch) => {
-    if (witch.number_of_likes >= 5){
-
-    return (
-      <WitchCard
-        witch={witch}
-        likedWitches={likedWitches}
-        onLikeOrUnlike={onLikeOrUnlike}
-        loadingLikedWitches={loadingLikedWitches}
-        key={witch.tokenID}
-      />
-    )      
-  };
+    if (witch.number_of_likes >= 5) {
+      return (
+        <WitchCard
+          witch={witch}
+          likedWitches={likedWitches}
+          onLikeOrUnlike={onLikeOrUnlike}
+          loadingLikedWitches={loadingLikedWitches}
+          key={witch.tokenID}
+        />
+      );
+    }
   });
 
   return (

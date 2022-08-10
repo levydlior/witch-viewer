@@ -10,6 +10,7 @@ function MyLikedWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
         onLikeOrUnlike={onLikeOrUnlike}
         loadingLikedWitches={loadingLikedWitches}
         key={witch.tokenID}
+        data-testid="witchCard"
       />
     );
   });
@@ -20,7 +21,11 @@ function MyLikedWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
         <h2>My Favorite Witches</h2>
       </div>
       <div id="witch-list-container">
-      {likedWitches.length === 0? <h3>You don't have any favorite witches yet</h3> :  <> {likedWitchesList}</>}
+        {likedWitches.length === 0 ? (
+          <h3>You don't have any favorite witches yet</h3>
+        ) : (
+          <> {likedWitchesList} </>
+        )}
       </div>
     </div>
   );

@@ -44,7 +44,9 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
       {!logedOrCreated ? (
         <>
           <div id="main-page-title">
-            <h2 id="login-create-title">Create your witch viewer account account</h2>
+            <h2 id="login-create-title">
+              Create your witch viewer account account
+            </h2>
           </div>
           <CreateAccountForm
             accountForm={accountForm}

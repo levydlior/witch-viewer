@@ -6,9 +6,12 @@ function Heart({ renderLikeOrNot, handleUnlike, handleLikeClick }) {
   return (
     <>
       {renderLikeOrNot() ? (
-        <FavoriteIcon className="heart" onClick={(e)=> handleUnlike(e)} />
+        <FavoriteIcon className="heart" onClick={(e) => handleUnlike(e)} />
       ) : (
-        <FavoriteBorderIcon className="heart" onClick={(e) => handleLikeClick(e)} />
+        <FavoriteBorderIcon
+          className="heart"
+          onClick={(e) => handleLikeClick(e)}
+        />
       )}
     </>
   );
