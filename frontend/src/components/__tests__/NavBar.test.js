@@ -8,6 +8,5 @@ test('renders a nav bar', () => {
     expect(nav).toBeInTheDocument()
 
 
-    // const navLink = screen.getByTestId('explore')
 
 })

@@ -4,7 +4,7 @@ import WitchCard from "./WitchCard";
 import { Waypoint } from "react-waypoint";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const WITCH = gql`
+export const WITCH = gql`
   query Token($first: Int!, $skip: Int) {
     tokens(first: $first, skip: $skip) {
       name

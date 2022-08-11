@@ -7,7 +7,4 @@ test("should render a header", () => {
     render(<Header />);
     const header = screen.getByTestId('header')
     expect(header).toBeInTheDocument()
-
-
-
 })

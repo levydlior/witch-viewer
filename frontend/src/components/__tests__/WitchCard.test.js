@@ -2,19 +2,60 @@ import {
   render,
   screen,
 } from "@testing-library/react";
-
+import { MockedProvider } from "@apollo/client/testing";
 import WitchCard from "../WitchCard";
+import { gql } from "@apollo/client";
 
-test('return true', ()=> {
-  expect(true).toBe(true)
+
+
+const witchToken = 1
+const WITCHDETAIL = gql`
+  {
+    tokens(where: { tokenID: "${witchToken}" }) {
+      name
+      image
+      tokenID
+      description
+      externalURL
+      owner {
+        id
+      }
+    }
+  }
+`;
+
+
+const mocks = [
+  {
+    request: {
+      query: WITCHDETAIL,
+      variables: {
+        tokenID: 1
+      }
+    },
+    result: {
+      data: {
+        witch: {tokenID: "1", name: "nyx", image: "test"}
+      }
+    }
+  }
+]
+
+const witch =[ {
+  name: 'nyx',
+  tokenID: '1',
+  image: 'test'
+}]
+
+const likedWitches = [{},{}]
+
+test("renders without error", async() => {
+  render(
+    <MockedProvider mocks={mocks} addTypename={false}>
+          <WitchCard witch={witch} likedWitches={likedWitches} />
+    </MockedProvider>
+  )
+  expect(await screen.findByText('Loading...').toBeInTheDocument)
 })
 
 
-test("renders a card", () => {
-  const likedWitches = [{ tokenID: 1 }, {}, {}];
-  const witch = { name: 'bla', tokenID: 1, image: 'bla'}
-
-  render(<WitchCard likedWitches={likedWitches} witch={witch} />);
-  const witchCard = screen.queryAllByTestId("witchCard");
-  expect(witchCard).toBeInTheDocument();
-});
