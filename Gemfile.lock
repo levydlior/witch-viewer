@@ -74,6 +74,7 @@ GEM
       activesupport
     concurrent-ruby (1.1.10)
     crass (1.0.6)
+    diff-lcs (1.5.0)
     email_validator (2.2.3)
       activemodel
     erubi (1.10.0)
@@ -142,6 +143,19 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rspec (3.11.0)
+      rspec-core (~> 3.11.0)
+      rspec-expectations (~> 3.11.0)
+      rspec-mocks (~> 3.11.0)
+    rspec-core (3.11.0)
+      rspec-support (~> 3.11.0)
+    rspec-expectations (3.11.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-mocks (3.11.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-support (3.11.0)
     spring (3.1.1)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
@@ -173,6 +187,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 6.1.6, >= 6.1.6.1)
+  rspec
   spring
   tzinfo-data
 
