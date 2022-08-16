@@ -39,10 +39,12 @@ This web app is designed to allow the user to interact with nfts that are querie
 To run this project: <ol>
  
   <li>Clone the repo to your computer</li>
-  <li>In the terminal run bundle install</li>
-  <li>In the terminal run npm install</li>
-  <li>In the terminal run rails s</li>
-  <li>In another terminal run npm start</li>
+  <li>In the root directory run bundle install</li>
+  <li>In the root directory run rails db:migrate db:seed</li>
+  <li>Cd into the frontend directory</li>
+  <li>In the frontend directory run npm install</li>
+  <li>In the root directory run rails s</li>
+  <li>Open another terminal, go to the frontend directory and run npm start</li>
   <li>Go to http://localhost:4000/</li>
   <li>Create an account and enjoy!</li>
   </ol>
