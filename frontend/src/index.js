@@ -24,7 +24,8 @@ root.render(
   <ApolloProvider client={client}>
     <BrowserRouter>
       <React.StrictMode>
-        <App />
+          <App />
+     
       </React.StrictMode>
     </BrowserRouter>
   </ApolloProvider>
