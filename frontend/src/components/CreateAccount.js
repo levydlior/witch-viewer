@@ -4,7 +4,7 @@ import CreateAccountForm from "./CreateAccountForm";
 import sucsessWitch from "./../gifs/sucsessWitch.gif";
 import Button from "@mui/material/Button";
 
-function CreateAccount({ onLogOrCreate, logedOrCreated }) {
+function CreateAccount({ onLogOrCreate, loggedOrCreated }) {
   const [accountForm, setAccountForm] = useState({
     username: "",
     password: "",
@@ -41,12 +41,10 @@ function CreateAccount({ onLogOrCreate, logedOrCreated }) {
 
   return (
     <div className="create-login-div">
-      {!logedOrCreated ? (
+      {!loggedOrCreated ? (
         <>
           <div id="main-page-title">
-            <h2 id="login-create-title">
-              Create your witch viewer account 
-            </h2>
+            <h2 id="login-create-title">Create your witch viewer account</h2>
           </div>
           <CreateAccountForm
             accountForm={accountForm}

@@ -29,7 +29,7 @@ function WitchCard({
       image: witch.image,
       tokenID: witch.tokenID,
     };
-
+    
     fetch("/likes", {
       method: "POST",
       headers: {
@@ -66,28 +66,27 @@ function WitchCard({
     setOpen(false);
   }
   return (
-    <div className="witch-card" onClick={handleDivClick} data-testid="witchCard">
+    <div
+      className="witch-card"
+      onClick={handleDivClick}
+      data-testid="witchCard"
+    >
       {loadingLikedWitches ? (
         <CircularProgress />
       ) : (
         <>
           <div className="image-div-card">
-          <img
-            className="witch-img"
-            src={witch.image}
-            alt={witch.name}
-          />
+            <img className="witch-img" src={witch.image} alt={witch.name} />
           </div>
           <div className="heart-card">
             <div className="witch-title">
               <h3>{witch.name}</h3>
               <Heart
-              renderLikeOrNot={renderLikeOrNot}
-              handleUnlike={handleUnlike}
-              handleLikeClick={handleLikeClick}
-            />
+                renderLikeOrNot={renderLikeOrNot}
+                handleUnlike={handleUnlike}
+                handleLikeClick={handleLikeClick}
+              />
             </div>
-       
           </div>
           <WitchDetailsPopUp
             witchToken={witch.tokenID}

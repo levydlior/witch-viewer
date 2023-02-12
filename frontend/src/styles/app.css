@@ -40,12 +40,12 @@ input {
   justify-content: center;
 }
 
-.loged-create-sucsessfuly {
+.logged-create-sucsessfuly {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 7rem;
 }
 
 .main-page-witches {

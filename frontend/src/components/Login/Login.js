@@ -1,21 +1,28 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import sucsessWitch from "./../gifs/sucsessWitch.gif";
+import sucsessWitch from "./../../gifs/sucsessWitch.gif";
 import TextField from "@mui/material/TextField";
-import Alert from "@mui/material/Alert";
-import Button from "@mui/material/Button";
+import {
+  LoginDiv,
+  LoggedSuccessfullyDiv,
+  LoginTitleDiv,
+  LoginTitle,
+  LoginButtonDiv,
+  ButtonLogin,
+  AlertComponent,
+} from "./Login.style";
 
-function Login({ onLogOrCreate, logedOrCreated }) {
+function Login({ onLogOrCreate, loggedOrCreated }) {
   const [inputForm, setInputForm] = useState({
     username: "",
     password: "",
   });
   const [error, setError] = useState(null);
+  const history = useHistory();
 
   function handleChange(e) {
     const target = e.target.name;
     const value = e.target.value;
-
     setInputForm({ ...inputForm, [target]: value });
   }
 
@@ -46,20 +53,18 @@ function Login({ onLogOrCreate, logedOrCreated }) {
     });
   }
 
-  const history = useHistory();
-
   return (
-    <div className="create-login-div">
-      {logedOrCreated ? (
-        <div className="loged-create-sucsessfuly">
-          <h2 id="main-page-title">Welcome 🧹</h2>
+    <LoginDiv>
+      {loggedOrCreated ? (
+        <LoggedSuccessfullyDiv>
+          <LoginTitle>Welcome 🧹</LoginTitle>
           <img src={sucsessWitch} alt="happy witch" />
-        </div>
+        </LoggedSuccessfullyDiv>
       ) : (
         <>
-          <div id="main-page-title">
-            <h2 id="login-create-title">Login in to your account</h2>
-          </div>
+          <LoginTitleDiv>
+            <LoginTitle>Login in to your account</LoginTitle>
+          </LoginTitleDiv>
           <form onSubmit={handleSubmit}>
             <TextField
               sx={{ margin: "1rem" }}
@@ -81,41 +86,21 @@ function Login({ onLogOrCreate, logedOrCreated }) {
               onChange={handleChange}
               required={true}
             />
-            <div style={{ width: "13.5rem" }}>
-              <Button
-                variant="outlined"
-                type="submit"
-                sx={{
-                  marginTop: "1rem",
-                  marginBottom: "1rem",
-                  width: "100%",
-                  textTransform: "none",
-                }}
-              >
-                Login
-              </Button>
+            <div>
+              <ButtonLogin type="submit">Login</ButtonLogin>
             </div>
             {error ? (
-              <Alert
-                sx={{ marginBottom: "1rem", width: "13.5rem" }}
-                severity="error"
-              >
-                {error.error}
-              </Alert>
+              <AlertComponent severity="error">{error.error}</AlertComponent>
             ) : null}
           </form>
-          <div className="login-create-button">
-            <Button
-              sx={{ textTransform: "none", width: "13.5rem" }}
-              variant="outlined"
-              onClick={() => history.push("/create-account")}
-            >
+          <LoginButtonDiv>
+            <ButtonLogin onClick={() => history.push("/create-account")}>
               Don't have an account?
-            </Button>
-          </div>
+            </ButtonLogin>
+          </LoginButtonDiv>
         </>
       )}
-    </div>
+    </LoginDiv>
   );
 }
 

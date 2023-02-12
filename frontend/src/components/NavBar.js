@@ -20,7 +20,7 @@ function NavBar({ loggedUser, onLogOut }) {
     <div id="reg-nav" data-testid="nav">
       {loggedUser ? (
         <div id="nav-links" data-testid="explore">
-          <NavLink className="links" exact to="/" activeClassName="selected" >
+          <NavLink className="links" exact to="/" activeClassName="selected">
             Explore
           </NavLink>
           <NavLink

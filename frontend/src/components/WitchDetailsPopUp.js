@@ -45,13 +45,12 @@ export default function WitchDetailsPopUp({
     onClosing(e);
   };
 
-
   const { loading, data } = useQuery(WITCHDETAIL);
 
-  let witch = []
+  let witch = [];
 
   if (!loading && !!data) {
-    witch = data.tokens[0]
+    witch = data.tokens[0];
   }
 
   return (

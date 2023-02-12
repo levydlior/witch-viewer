@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  
   def create
     witch = Witch.find_or_create_by(like_params)
     like = Like.create!(witch_id: witch.id, user_id: session[:user_id])

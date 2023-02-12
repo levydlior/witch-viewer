@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Switch } from "react-router";
 import MainPage from "./components/MainPage";
 import { Route } from "react-router";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import CreateAccount from "./components/CreateAccount";
 import Header from "./components/Header";
 import { useHistory } from "react-router-dom";
@@ -13,7 +13,7 @@ import PopularWitches from "./components/PopularWitches";
 function App() {
   const [loggedUser, setLoggedUser] = useState(null);
   const [auth, setAuth] = useState(false);
-  const [logedOrCreated, setLogedOrCreated] = useState(false);
+  const [loggedOrCreated, setLoggedOrCreated] = useState(false);
   const [likedWitches, setLikedWitches] = useState([]);
   const [loadingLikedWitches, setLoadingLikedWitches] = useState(true);
 
@@ -43,12 +43,12 @@ function App() {
       });
     },
     [loggedUser],
-    [logedOrCreated]
+    [loggedOrCreated]
   );
 
   function handleLogOut() {
     setLoggedUser(null);
-    setLogedOrCreated(false);
+    setLoggedOrCreated(false);
   }
 
   function onLikeOrUnlike(witch) {
@@ -66,7 +66,7 @@ function App() {
   const history = useHistory();
 
   function handleLogOrCreate(user) {
-    setLogedOrCreated(user);
+    setLoggedOrCreated(user);
     setTimeout(() => {
       setLoggedUser(user);
       history.push("/");
@@ -85,8 +85,11 @@ function App() {
         <>
           <Switch>
             <Route path="/popular-witches" data-testid="pop-witch-route">
-              <PopularWitches likedWitches={likedWitches} onLikeOrUnlike={onLikeOrUnlike} loadingLikedWitches={loadingLikedWitches}
-/>
+              <PopularWitches
+                likedWitches={likedWitches}
+                onLikeOrUnlike={onLikeOrUnlike}
+                loadingLikedWitches={loadingLikedWitches}
+              />
             </Route>
             <Route exact path="/my-favorite-witches">
               <MyLikedWitches
@@ -113,19 +116,19 @@ function App() {
             <Route path="/login">
               <Login
                 onLogOrCreate={handleLogOrCreate}
-                logedOrCreated={logedOrCreated}
+                loggedOrCreated={loggedOrCreated}
               />
             </Route>
             <Route exact path="/">
               <CreateAccount
                 onLogOrCreate={handleLogOrCreate}
-                logedOrCreated={logedOrCreated}
+                loggedOrCreated={loggedOrCreated}
               />
             </Route>
             <Route path="/create-account">
               <CreateAccount
                 onLogOrCreate={handleLogOrCreate}
-                logedOrCreated={logedOrCreated}
+                loggedOrCreated={loggedOrCreated}
               />
             </Route>
             <Route exact path="*">
