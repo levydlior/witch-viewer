@@ -23,7 +23,7 @@ function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
     return (
       <div className="main-page-witches">
         <div id="main-page-title">
-          <h2>Gathering the witches!</h2>{" "}
+          <h2>Gathering the witches!</h2>
           <CircularProgress sx={{ margin: "0.5rem" }} />
         </div>
       </div>
@@ -40,13 +40,13 @@ function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
                   first: 36,
                   skip: data.tokens.length,
                 },
-                updateQuery: (pv, fetchMoreResults) => {
+                updateQuery: (previousRustles, fetchMoreResults) => {
                   if (!fetchMoreResults) {
-                    return pv;
+                    return previousRustles;
                   }
                   return {
                     tokens: [
-                      ...pv.tokens,
+                      ...previousRustles.tokens,
                       ...fetchMoreResults.fetchMoreResult.tokens,
                     ],
                   };
@@ -71,7 +71,7 @@ function MainPage({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
         <h2>The Witches</h2>
       </div>
       <div id="witch-list-container">
-        {loading ? <h2>Gathering the witches!</h2> : <>{witchList}</>}
+        {witchList}
       </div>
     </div>
   );

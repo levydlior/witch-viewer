@@ -29,7 +29,7 @@ function WitchCard({
       image: witch.image,
       tokenID: witch.tokenID,
     };
-    
+
     fetch("/likes", {
       method: "POST",
       headers: {

@@ -15,18 +15,18 @@ function CreateAccountForm({
     onInputChange(target, value);
   }
 
-  function spesificError(text) {
-    let er;
+  function specificError(text) {
+    let CurrentError;
     errors.forEach((error) => {
       if (error === text) {
-        er = error;
-        return er;
+        CurrentError = error;
+        return CurrentError;
       }
     });
-    if (er) {
+    if (CurrentError) {
       return (
         <Alert sx={{ width: "13.5rem" }} severity="error">
-          {er}
+          {CurrentError}
         </Alert>
       );
     }
@@ -44,7 +44,7 @@ function CreateAccountForm({
         onChange={handleChange}
         required={true}
       />
-      {spesificError("Username has already been taken")}
+      {specificError("Username has already been taken")}
       <TextField
         sx={{ margin: "1rem" }}
         id="outlined-search"
@@ -65,8 +65,8 @@ function CreateAccountForm({
         onChange={handleChange}
         required={true}
       />
-      {spesificError("Email is invalid")}
-      {spesificError("Email has already been taken")}
+      {specificError("Email is invalid")}
+      {specificError("Email has already been taken")}
       <div style={{ width: "13.5rem" }}>
         <Button
           variant="outlined"

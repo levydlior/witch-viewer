@@ -80,7 +80,6 @@ function App() {
   return (
     <div className="App" data-testid="app-components">
       <Header loggedUser={loggedUser} onLogOut={handleLogOut} />
-
       {loggedUser ? (
         <>
           <Switch>
