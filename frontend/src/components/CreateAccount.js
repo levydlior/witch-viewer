@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import CreateAccountForm from "./CreateAccountForm";
-import sucsessWitch from "./../gifs/sucsessWitch.gif";
+import successWitch from "./../gifs/successWitch.gif";
 import Button from "@mui/material/Button";
 
 function CreateAccount({ onLogOrCreate, loggedOrCreated }) {
@@ -65,7 +65,7 @@ function CreateAccount({ onLogOrCreate, loggedOrCreated }) {
       ) : (
         <div className="loged-create-sucsessfuly">
           <h2 id="main-page-title">Account Created -- Welcome 🧹</h2>
-          <img src={sucsessWitch} alt="happy witch" />
+          <img src={successWitch} alt="happy witch" />
         </div>
       )}
     </div>

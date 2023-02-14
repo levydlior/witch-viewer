@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Alert } from "@mui/material";
 import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 export const LoginDiv = styled.div`
   display: flex;
@@ -45,7 +46,12 @@ export const ButtonLogin = styled(Button, {
 `;
 
 export const AlertComponent = styled(Alert, {
-  severity: "error"
 })`
   width: 13.5rem;
+`;
+
+export const FormTextField = styled(TextField, {
+  id: "outlined-search",
+})`
+  margin: 1rem;
 `;
