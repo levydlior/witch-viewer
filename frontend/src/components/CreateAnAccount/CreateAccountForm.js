@@ -1,21 +1,21 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
+import { CreateAnAccountButton } from "./CreateAccount.style";
+import { AlertComponent } from "../../styles/GeneralComponents.style";
 
-function CreateAccountForm({
+const CreateAccountForm = ({
   accountForm,
   onInputChange,
   onCreateAccount,
   errors,
-}) {
-  function handleChange(e) {
+}) => {
+  const handleChange = (e) => {
     const target = e.target.name;
     const value = e.target.value;
     onInputChange(target, value);
-  }
+  };
 
-  function specificError(text) {
+  const specificError = (text) => {
     let CurrentError;
     errors.forEach((error) => {
       if (error === text) {
@@ -24,13 +24,9 @@ function CreateAccountForm({
       }
     });
     if (CurrentError) {
-      return (
-        <Alert sx={{ width: "13.5rem" }} severity="error">
-          {CurrentError}
-        </Alert>
-      );
+      return <AlertComponent severity="error">{CurrentError}</AlertComponent>;
     }
-  }
+  };
 
   return (
     <form onSubmit={(e) => onCreateAccount(e)}>
@@ -68,21 +64,12 @@ function CreateAccountForm({
       {specificError("Email is invalid")}
       {specificError("Email has already been taken")}
       <div style={{ width: "13.5rem" }}>
-        <Button
-          variant="outlined"
-          type="submit"
-          sx={{
-            marginTop: "1rem",
-            marginBottom: "1rem",
-            width: "100%",
-            textTransform: "none",
-          }}
-        >
+        <CreateAnAccountButton type="submit">
           Create an account
-        </Button>
+        </CreateAnAccountButton>
       </div>
     </form>
   );
-}
+};
 
 export default CreateAccountForm;

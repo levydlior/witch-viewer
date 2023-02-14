@@ -4,14 +4,16 @@ import successWitch from "./../../gifs/successWitch.gif";
 import { handleLogin } from "./Login.requests";
 import {
   LoginDiv,
-  LoggedSuccessfullyDiv,
-  LoginTitleDiv,
-  LoginTitle,
-  LoginButtonDiv,
   ButtonLogin,
-  AlertComponent,
   FormTextField,
 } from "./Login.style";
+import {
+  AlertComponent,
+  LoggedOrCreatedSuccessfullyDiv,
+  LoginOrCreateTitle,
+  LoginOrCreateTitleDiv,
+  LoginOrCreateButtonDiv
+} from "../../styles/GeneralComponents.style";
 
 const Login = ({ onLogOrCreate, loggedOrCreated }) => {
   const [inputForm, setInputForm] = useState({
@@ -37,15 +39,15 @@ const Login = ({ onLogOrCreate, loggedOrCreated }) => {
   return (
     <LoginDiv>
       {loggedOrCreated ? (
-        <LoggedSuccessfullyDiv>
-          <LoginTitle>Welcome 🧹</LoginTitle>
+        <LoggedOrCreatedSuccessfullyDiv>
+          <LoginOrCreateTitle>Welcome 🧹</LoginOrCreateTitle>
           <img src={successWitch} alt="happy witch" />
-        </LoggedSuccessfullyDiv>
+        </LoggedOrCreatedSuccessfullyDiv>
       ) : (
         <>
-          <LoginTitleDiv>
-            <LoginTitle>Login in to your account</LoginTitle>
-          </LoginTitleDiv>
+          <LoginOrCreateTitleDiv>
+            <LoginOrCreateTitle>Login in to your account</LoginOrCreateTitle>
+          </LoginOrCreateTitleDiv>
           <form
             onSubmit={(e) =>
               handleLogin(e, inputForm, onLogOrCreate, setError, resetForm)
@@ -74,11 +76,11 @@ const Login = ({ onLogOrCreate, loggedOrCreated }) => {
               <AlertComponent severity="error">{error.error}</AlertComponent>
             ) : null}
           </form>
-          <LoginButtonDiv>
+          <LoginOrCreateButtonDiv>
             <ButtonLogin onClick={() => history.push("/create-account")}>
               Don't have an account?
             </ButtonLogin>
-          </LoginButtonDiv>
+          </LoginOrCreateButtonDiv>
         </>
       )}
     </LoginDiv>
