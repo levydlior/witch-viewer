@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import WitchCard from "./WitchCard";
+import WitchCard from "./WitchCard/WitchCard";
 
 function PopularWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
   const [popularWitches, setPopularWitches] = useState([]);

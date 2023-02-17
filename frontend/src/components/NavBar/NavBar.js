@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { HandleLogOut } from "../SideBurgerMenu/SideBurgerMenu.requests";
 import {RegNav, Link} from './NavBar.styles'
 import { NavLinks } from "../SideBurgerMenu/SideBurgerMenu.styles";

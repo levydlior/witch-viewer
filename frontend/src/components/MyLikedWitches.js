@@ -1,5 +1,5 @@
 import React from "react";
-import WitchCard from "./WitchCard";
+import WitchCard from "./WitchCard/WitchCard";
 
 function MyLikedWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
   const likedWitchesList = likedWitches.map((witch) => {

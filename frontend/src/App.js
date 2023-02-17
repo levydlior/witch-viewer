@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Switch } from "react-router";
-import MainPage from "./components/MainPage";
+import MainPage from "./components/MainPage/MainPage";
 import { Route } from "react-router";
 import Login from "./components/Login/Login";
 import CreateAccount from "./components/CreateAnAccount/CreateAccount";
