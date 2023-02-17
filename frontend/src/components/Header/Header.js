@@ -1,29 +1,35 @@
 import React from "react";
-import NavBar from "./NavBar";
-import logo from "./../gifs/logo.jpg";
+import NavBar from "../NavBar";
+import logo from "./../../gifs/logo.jpg";
 import { useHistory } from "react-router-dom";
-import SideBurgerMenu from "./SideBurgerMenu";
+import SideBurgerMenu from "../SideBurgerMenu/SideBurgerMenu";
+import {
+  WebHeader,
+  LogoTitleDiv,
+  WebHeaderImage,
+  BurgerNav,
+} from "./Header.styles";
 
 function Header({ loggedUser, onLogOut }) {
   const history = useHistory();
   return (
-    <div id="web-header" data-testid="header">
-      <div id="logo-title" onClick={() => history.push("/")}>
-        <img id="logo-img" src={logo} alt="Witch flying" />
+    <WebHeader>
+      <LogoTitleDiv onClick={() => history.push("/")}>
+        <WebHeaderImage src={logo} alt="Witch flying" />
         <h1>Witch Viewer</h1>
-      </div>
+      </LogoTitleDiv>
       {loggedUser ? (
-        <div className="burger-nav">
+        <BurgerNav>
           <SideBurgerMenu
             id="burger-icon"
             loggedUser={loggedUser}
             onLogOut={onLogOut}
           />
-        </div>
+        </BurgerNav>
       ) : null}
 
       <NavBar loggedUser={loggedUser} onLogOut={onLogOut} />
-    </div>
+    </WebHeader>
   );
 }
 

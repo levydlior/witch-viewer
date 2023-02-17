@@ -3,9 +3,10 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
-import { NavLink } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
+import { NavLinks, Links } from "./SideBurgerMenu.styles";
+import { useHistory } from "react-router-dom";
+import { HandleLogOut } from "./SideBurgerMenu.requests";
 
 export default function SideBurgerMenu({ loggedUser, onLogOut }) {
   const [state, setState] = React.useState({
@@ -13,18 +14,6 @@ export default function SideBurgerMenu({ loggedUser, onLogOut }) {
   });
 
   let history = useHistory();
-
-  function handleLogOut(e) {
-    e.preventDefault();
-    fetch("/logout", {
-      method: "DELETE",
-    }).then((r) => {
-      if (r.ok) {
-        onLogOut();
-        history.push("/login");
-      }
-    });
-  }
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -47,35 +36,20 @@ export default function SideBurgerMenu({ loggedUser, onLogOut }) {
       <List>
         <div>
           {loggedUser ? (
-            <div id="nav-links">
-              <NavLink
-                className="links"
-                exact
-                to="/"
-                activeClassName="selected"
-              >
+            <NavLinks>
+              <Links exact to="/" activeClassName="selected">
                 Explore
-              </NavLink>
-              <NavLink
-                className="links"
-                exact
-                to="/my-favorite-witches"
-                activeClassName="selected"
-              >
+              </Links>
+              <Links exact to="/my-favorite-witches" activeClassName="selected">
                 My Favorites
-              </NavLink>
-              <NavLink
-                className="links"
-                exact
-                to="/popular-witches"
-                activeClassName="selected"
-              >
+              </Links>
+              <Links exact to="/popular-witches" activeClassName="selected">
                 Popular Witches
-              </NavLink>
-              <NavLink className="links" to="/" onClick={handleLogOut}>
+              </Links>
+              <Links to="/" onClick={(e) => HandleLogOut(e, onLogOut, history)}>
                 Logout
-              </NavLink>
-            </div>
+              </Links>
+            </NavLinks>
           ) : null}
         </div>
       </List>
