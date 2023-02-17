@@ -14,9 +14,3 @@ export const NavLinks = styled.div`
     margin-top: 1rem;
   }
 `;
-
-export const Links = styled.li`
-margin-inline: 2rem;
-width: 4rem;
-`
-

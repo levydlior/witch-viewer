@@ -4,11 +4,12 @@ import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import MenuIcon from "@mui/icons-material/Menu";
-import { NavLinks, Links } from "./SideBurgerMenu.styles";
+import { NavLinks } from "./SideBurgerMenu.styles";
 import { useHistory } from "react-router-dom";
 import { HandleLogOut } from "./SideBurgerMenu.requests";
+import { Link } from "../NavBar/NavBar.styles";
 
-export default function SideBurgerMenu({ loggedUser, onLogOut }) {
+export const SideBurgerMenu = ({ loggedUser, onLogOut }) => {
   const [state, setState] = React.useState({
     right: false,
   });
@@ -37,18 +38,18 @@ export default function SideBurgerMenu({ loggedUser, onLogOut }) {
         <div>
           {loggedUser ? (
             <NavLinks>
-              <Links exact to="/" activeClassName="selected">
+              <Link exact to="/" activeClassName="selected">
                 Explore
-              </Links>
-              <Links exact to="/my-favorite-witches" activeClassName="selected">
+              </Link>
+              <Link exact to="/my-favorite-witches" activeClassName="selected">
                 My Favorites
-              </Links>
-              <Links exact to="/popular-witches" activeClassName="selected">
+              </Link>
+              <Link exact to="/popular-witches" activeClassName="selected">
                 Popular Witches
-              </Links>
-              <Links to="/" onClick={(e) => HandleLogOut(e, onLogOut, history)}>
+              </Link>
+              <Link to="/" onClick={(e) => HandleLogOut(e, onLogOut, history)}>
                 Logout
-              </Links>
+              </Link>
             </NavLinks>
           ) : null}
         </div>
@@ -74,4 +75,4 @@ export default function SideBurgerMenu({ loggedUser, onLogOut }) {
       ))}
     </div>
   );
-}
+};

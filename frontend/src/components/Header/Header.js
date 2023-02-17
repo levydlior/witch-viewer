@@ -1,8 +1,8 @@
 import React from "react";
-import NavBar from "../NavBar";
+import NavBar from "../NavBar/NavBar";
 import logo from "./../../gifs/logo.jpg";
 import { useHistory } from "react-router-dom";
-import SideBurgerMenu from "../SideBurgerMenu/SideBurgerMenu";
+import { SideBurgerMenu } from "../SideBurgerMenu/SideBurgerMenu";
 import {
   WebHeader,
   LogoTitleDiv,
