@@ -7,8 +7,8 @@ import CreateAccount from "./components/CreateAnAccount/CreateAccount";
 import Header from "./components//Header/Header";
 import { useHistory } from "react-router-dom";
 import "./styles/app.css";
-import MyLikedWitches from "./components/MyLikedWitches";
-import PopularWitches from "./components/PopularWitches";
+import MyLikedWitches from "./components/MyLikedWitches/MyLikedWitches";
+import PopularWitches from "./components/PopularWitches/PopularWitches";
 
 function App() {
   const [loggedUser, setLoggedUser] = useState(null);
