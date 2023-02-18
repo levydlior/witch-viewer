@@ -1,21 +1,17 @@
 import React from "react";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+
+import { EmptyHeart, LikedHeart } from "./Heart.styles";
 
 function Heart({ renderLikeOrNot, handleUnlike, handleLikeClick }) {
   return (
     <>
       {renderLikeOrNot() ? (
-        <FavoriteIcon
-          className="heart"
+        <LikedHeart
           onClick={(e) => handleUnlike(e)}
           data-testid="liked-heart"
         />
       ) : (
-        <FavoriteBorderIcon
-          className="heart"
-          onClick={(e) => handleLikeClick(e)}
-        />
+        <EmptyHeart className="heart" onClick={(e) => handleLikeClick(e)} />
       )}
     </>
   );

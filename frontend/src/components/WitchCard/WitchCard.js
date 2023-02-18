@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
-import WitchDetailsPopUp from "../WitchDetailsPopUp";
-import Heart from "../Heart";
+import {WitchDetailsPopUp} from "../WitchDetailsPopUp/WitchDetailsPopUp";
+import Heart from "../Heart/Heart";
 import { WitchCardDiv } from "./WitchCard.styles";
 import { handleUnlike, handleLikeClick } from "./WitchCard.requests";
 
@@ -23,8 +23,6 @@ const WitchCard = ({
     }
     return false;
   };
-
-  renderLikeOrNot();
 
   const handleDivClick = () => {
     setOpen(true);
