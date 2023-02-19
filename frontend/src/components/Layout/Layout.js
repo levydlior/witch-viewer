@@ -33,6 +33,7 @@ const Layout = () => {
   const handleLogOut = () => {
     setLoggedUser(null);
     setLoggedOrCreated(false);
+    history.push("/login");
   };
 
   const onLikeOrUnlike = (witch) => {
@@ -61,7 +62,7 @@ const Layout = () => {
   }
 
   return (
-    <div className="App" data-testid="app-components">
+    <div data-testid="app-components">
       <Header loggedUser={loggedUser} onLogOut={handleLogOut} />
       {loggedUser ? (
         <>

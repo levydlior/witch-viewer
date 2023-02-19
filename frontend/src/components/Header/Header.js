@@ -27,7 +27,6 @@ const Header = ({ loggedUser, onLogOut }) => {
           />
         </BurgerNav>
       ) : null}
-
       <NavBar loggedUser={loggedUser} onLogOut={onLogOut} />
     </WebHeader>
   );

@@ -1,11 +1,9 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { HandleLogOut } from "../SideBurgerMenu/SideBurgerMenu.requests";
 import {RegNav, Link} from './NavBar.styles'
 import { NavLinks } from "../SideBurgerMenu/SideBurgerMenu.styles";
 
 const NavBar = ({ loggedUser, onLogOut }) => {
-  let history = useHistory();
 
   return (
     <RegNav data-testid="nav">
@@ -30,7 +28,7 @@ const NavBar = ({ loggedUser, onLogOut }) => {
           </Link>
           <Link
             to="/"
-            onClick={(e) => HandleLogOut(e, history, onLogOut())}
+            onClick={(e) => HandleLogOut(e, onLogOut)}
           >
             Logout
           </Link>
