@@ -2,12 +2,12 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import WitchCard from "../WitchCard/WitchCard";
 import { Waypoint } from "react-waypoint";
-import CircularProgress from "@mui/material/CircularProgress";
 import { WITCHQUERY, fetchMoreWitches } from "./MainPage.requests";
 import {
   MainPageTitleDiv,
   MainPageWitchesDiv,
   WitchListContainer,
+  LoadingProgress,
 } from "./MainPage.styles";
 
 const MainPage = ({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) => {
@@ -20,7 +20,7 @@ const MainPage = ({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) => {
       <div className="main-page-witches">
         <div id="main-page-title">
           <h2>Gathering the witches!</h2>
-          <CircularProgress sx={{ margin: "0.5rem" }} />
+          <LoadingProgress />
         </div>
       </div>
     );

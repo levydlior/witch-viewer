@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import CircularProgress from "@mui/material/CircularProgress";
+
 
 export const MainPageWitchesDiv = styled.div`
   display: flex;
@@ -19,3 +21,8 @@ export const WitchListContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 `;
+
+
+export const LoadingProgress = styled(CircularProgress)`
+  margin: 0.5rem;
+`
