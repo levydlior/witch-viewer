@@ -25,11 +25,12 @@ This web app is designed to allow the user to interact with nfts that are querie
 <li>React Apollo</li>
 <li>HTML</li>
 <li>CSS</li>
+<li>Styled Components</li>
+<li>MUI</li>
 <li>Javascript</li>
 <li>Rails</li>
 <li>Ruby</li>
 <li>Graphql</li>
-<li>Jest</li>
 <li>Jest</li>
 <li>postgresql</li>
 </ul>
