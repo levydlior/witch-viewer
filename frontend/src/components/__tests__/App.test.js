@@ -10,6 +10,3 @@ test('return false user', ()=> {
     expect(route).not.toBeInTheDocument()
 })
 
-// test('true', () => {
-//     expect(true).toBe(true)
-// })

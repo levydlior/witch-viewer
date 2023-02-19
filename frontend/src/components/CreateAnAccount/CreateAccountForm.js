@@ -1,36 +1,32 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
+import { CreateAnAccountButton } from "./CreateAccount.style";
+import { AlertComponent } from "../../styles/GeneralComponents.style";
 
-function CreateAccountForm({
+const CreateAccountForm = ({
   accountForm,
   onInputChange,
   onCreateAccount,
   errors,
-}) {
-  function handleChange(e) {
+}) => {
+  const handleChange = (e) => {
     const target = e.target.name;
     const value = e.target.value;
     onInputChange(target, value);
-  }
+  };
 
-  function spesificError(text) {
-    let er;
+  const specificError = (text) => {
+    let CurrentError;
     errors.forEach((error) => {
       if (error === text) {
-        er = error;
-        return er;
+        CurrentError = error;
+        return CurrentError;
       }
     });
-    if (er) {
-      return (
-        <Alert sx={{ width: "13.5rem" }} severity="error">
-          {er}
-        </Alert>
-      );
+    if (CurrentError) {
+      return <AlertComponent severity="error">{CurrentError}</AlertComponent>;
     }
-  }
+  };
 
   return (
     <form onSubmit={(e) => onCreateAccount(e)}>
@@ -44,7 +40,7 @@ function CreateAccountForm({
         onChange={handleChange}
         required={true}
       />
-      {spesificError("Username has already been taken")}
+      {specificError("Username has already been taken")}
       <TextField
         sx={{ margin: "1rem" }}
         id="outlined-search"
@@ -65,24 +61,15 @@ function CreateAccountForm({
         onChange={handleChange}
         required={true}
       />
-      {spesificError("Email is invalid")}
-      {spesificError("Email has already been taken")}
+      {specificError("Email is invalid")}
+      {specificError("Email has already been taken")}
       <div style={{ width: "13.5rem" }}>
-        <Button
-          variant="outlined"
-          type="submit"
-          sx={{
-            marginTop: "1rem",
-            marginBottom: "1rem",
-            width: "100%",
-            textTransform: "none",
-          }}
-        >
+        <CreateAnAccountButton type="submit">
           Create an account
-        </Button>
+        </CreateAnAccountButton>
       </div>
     </form>
   );
-}
+};
 
 export default CreateAccountForm;

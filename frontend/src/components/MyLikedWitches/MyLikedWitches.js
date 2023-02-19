@@ -1,7 +1,16 @@
 import React from "react";
-import WitchCard from "./WitchCard";
+import WitchCard from "../WitchCard/WitchCard";
+import {
+  MainPageWitchesDiv,
+  WitchListContainer,
+  MainPageTitleDiv,
+} from "../MainPage/MainPage.styles";
 
-function MyLikedWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
+const MyLikedWitches = ({
+  likedWitches,
+  onLikeOrUnlike,
+  loadingLikedWitches,
+}) => {
   const likedWitchesList = likedWitches.map((witch) => {
     return (
       <WitchCard
@@ -16,19 +25,19 @@ function MyLikedWitches({ likedWitches, onLikeOrUnlike, loadingLikedWitches }) {
   });
 
   return (
-    <div className="main-page-witches">
-      <div id="main-page-title">
+    <MainPageWitchesDiv>
+      <MainPageTitleDiv>
         <h2>My Favorite Witches</h2>
-      </div>
-      <div id="witch-list-container">
+      </MainPageTitleDiv>
+      <WitchListContainer>
         {likedWitches.length === 0 ? (
           <h3>You don't have any favorite witches yet</h3>
         ) : (
           <> {likedWitchesList} </>
         )}
-      </div>
-    </div>
+      </WitchListContainer>
+    </MainPageWitchesDiv>
   );
-}
+};
 
 export default MyLikedWitches;
