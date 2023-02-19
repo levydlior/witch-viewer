@@ -10,7 +10,7 @@ import {
   BurgerNav,
 } from "./Header.styles";
 
-function Header({ loggedUser, onLogOut }) {
+const Header = ({ loggedUser, onLogOut }) => {
   const history = useHistory();
   return (
     <WebHeader>
@@ -31,6 +31,6 @@ function Header({ loggedUser, onLogOut }) {
       <NavBar loggedUser={loggedUser} onLogOut={onLogOut} />
     </WebHeader>
   );
-}
+};
 
 export default Header;

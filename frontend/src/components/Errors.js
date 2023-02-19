@@ -1,9 +1,9 @@
 import React from "react";
 
-function Errors({ errors }) {
-  const errorlist = errors.map((er) => <p>{er}</p>);
+const Errors = ({ errors }) => {
+  const errorList = errors.map((er) => <p>{er}</p>);
 
-  return <div>{errorlist}</div>;
+  return <div>{errorList}</div>;
 }
 
 export default Errors;

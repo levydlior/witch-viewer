@@ -2,7 +2,7 @@ import React from "react";
 
 import { EmptyHeart, LikedHeart } from "./Heart.styles";
 
-function Heart({ renderLikeOrNot, handleUnlike, handleLikeClick }) {
+const Heart = ({ renderLikeOrNot, handleUnlike, handleLikeClick }) => {
   return (
     <>
       {renderLikeOrNot() ? (
@@ -15,6 +15,6 @@ function Heart({ renderLikeOrNot, handleUnlike, handleLikeClick }) {
       )}
     </>
   );
-}
+};
 
 export default Heart;
