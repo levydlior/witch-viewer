@@ -5,14 +5,14 @@ import successWitch from "./../../gifs/successWitch.gif";
 import {
   CreateAnAccountDiv,
   CreateAnAccountButton,
-} from "./CreateAccount.style";
+} from "./CreateAccount.styles";
 import {
   LoggedOrCreatedSuccessfullyDiv,
   LoginOrCreateTitle,
   LoginOrCreateTitleDiv,
   LoginOrCreateButtonDiv,
-} from "../../styles/GeneralComponents.style";
-import { CreateAnAccountRequest } from "./CreateAccount.requests";
+} from "../../styles/GeneralComponents.styles";
+import { CreateAnAccountRequest } from "./CreateAccount.request";
 
 const CreateAccount = ({ onLogOrCreate, loggedOrCreated }) => {
   const [accountForm, setAccountForm] = useState({

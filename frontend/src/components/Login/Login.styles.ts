@@ -10,8 +10,6 @@ export const LoginDiv = styled.div`
 `;
 
 export const ButtonLogin = styled(Button, {
-  variant: "outlined",
-  type: "submit",
 })`
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -20,7 +18,6 @@ export const ButtonLogin = styled(Button, {
 `;
 
 export const FormTextField = styled(TextField, {
-  id: "outlined-search",
 })`
   margin: 1rem;
 `;

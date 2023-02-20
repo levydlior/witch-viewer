@@ -1,31 +1,34 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import successWitch from "./../../gifs/successWitch.gif";
-import { handleLogin } from "./Login.requests";
+import successWitch from "../../gifs/successWitch.gif";
+import { handleLogin } from "./Login.request";
 import {
   LoginDiv,
   ButtonLogin,
   FormTextField,
-} from "./Login.style";
+} from "./Login.styles";
 import {
   AlertComponent,
   LoggedOrCreatedSuccessfullyDiv,
   LoginOrCreateTitle,
   LoginOrCreateTitleDiv,
   LoginOrCreateButtonDiv
-} from "../../styles/GeneralComponents.style";
+} from "../../styles/GeneralComponents.styles";
+import { LoginProps, ErrorState, InputLoginForm } from "./Login.types";
 
-const Login = ({ onLogOrCreate, loggedOrCreated }) => {
-  const [inputForm, setInputForm] = useState({
+const Login = (LoginProps: LoginProps) => {
+  const { onLogOrCreate, loggedOrCreated } = LoginProps
+  const [inputForm, setInputForm] = useState<InputLoginForm>({
     username: "",
     password: "",
   });
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<ErrorState>(null);
+
   const history = useHistory();
 
-  const handleChange = (e) => {
-    const target = e.target.name;
-    const value = e.target.value;
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const target = event.target.name;
+    const value = event.target.value;
     setInputForm({ ...inputForm, [target]: value });
   };
 

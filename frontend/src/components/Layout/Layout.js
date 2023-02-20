@@ -8,7 +8,7 @@ import Header from "./../Header/Header";
 import { useHistory } from "react-router-dom";
 import MyLikedWitches from "./../MyLikedWitches/MyLikedWitches";
 import PopularWitches from "./../PopularWitches/PopularWitches";
-import { fetchLoggedUser, fetchLikedWitches } from "./Layout.requests";
+import { fetchLoggedUser, fetchLikedWitches } from "./Layout.request";
 
 const Layout = () => {
   const [loggedUser, setLoggedUser] = useState(null);

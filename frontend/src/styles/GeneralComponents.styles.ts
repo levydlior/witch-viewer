@@ -10,7 +10,7 @@ export const LoggedOrCreatedSuccessfullyDiv = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 7rem;
+  margin-top: 10rem;
 `;
 
 export const LoginOrCreateTitle = styled.h2`

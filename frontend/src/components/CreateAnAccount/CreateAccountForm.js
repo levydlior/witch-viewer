@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
-import { CreateAnAccountButton } from "./CreateAccount.style";
-import { AlertComponent } from "../../styles/GeneralComponents.style";
+import { CreateAnAccountButton } from "./CreateAccount.styles";
+import { AlertComponent } from "../../styles/GeneralComponents.styles";
 
 const CreateAccountForm = ({
   accountForm,
