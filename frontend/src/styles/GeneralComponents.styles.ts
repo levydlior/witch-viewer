@@ -22,7 +22,7 @@ export const LoginOrCreateTitle = styled.h2`
 export const LoginOrCreateTitleDiv = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 8rem;
 `;
 
 export const LoginOrCreateButtonDiv = styled.div`

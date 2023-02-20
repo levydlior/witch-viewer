@@ -13,9 +13,14 @@ import {
   LoginOrCreateButtonDiv,
 } from "../../styles/GeneralComponents.styles";
 import { CreateAnAccountRequest } from "./CreateAccount.request";
+import { LoginAndCreateProps } from "../../GeneralTypes/GeneralTypes";
+import { AccountForm, ErrorState } from "./CreateAccount.types";
 
-const CreateAccount = ({ onLogOrCreate, loggedOrCreated }) => {
-  const [accountForm, setAccountForm] = useState({
+const CreateAccount = (createAnAccountProps: LoginAndCreateProps) => {
+
+  const { loggedOrCreated, onLogOrCreate } = createAnAccountProps
+
+  const [accountForm, setAccountForm] = useState<AccountForm>({
     username: "",
     password: "",
     email: "",
@@ -23,9 +28,9 @@ const CreateAccount = ({ onLogOrCreate, loggedOrCreated }) => {
 
   const history = useHistory();
 
-  const [errors, setErrors] = useState({ errors: [] });
+  const [errors, setErrors] = useState<ErrorState>({ errors: [] });
 
-  const handleInputChange = (target, value) => {
+  const handleInputChange = (target: string, value: string) => {
     setAccountForm({ ...accountForm, [target]: value });
   };
 
@@ -41,8 +46,8 @@ const CreateAccount = ({ onLogOrCreate, loggedOrCreated }) => {
           <CreateAccountForm
             accountForm={accountForm}
             onInputChange={handleInputChange}
-            onCreateAccount={(e) =>
-              CreateAnAccountRequest(e, accountForm, onLogOrCreate, setErrors)
+            onCreateAccount={(event: React.FormEvent<HTMLFormElement>) =>
+              CreateAnAccountRequest(event, accountForm, onLogOrCreate, setErrors)
             }
             errors={errors.errors}
           />

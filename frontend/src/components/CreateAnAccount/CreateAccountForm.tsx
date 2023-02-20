@@ -2,22 +2,27 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import { CreateAnAccountButton } from "./CreateAccount.styles";
 import { AlertComponent } from "../../styles/GeneralComponents.styles";
+import { CreateAccountFormProps, ErrorType } from "./CreateAccount.types";
 
-const CreateAccountForm = ({
-  accountForm,
-  onInputChange,
-  onCreateAccount,
-  errors,
-}) => {
-  const handleChange = (e) => {
-    const target = e.target.name;
-    const value = e.target.value;
+const CreateAccountForm = (
+  CreateAccountFormProps: CreateAccountFormProps
+) => {
+  const { accountForm,
+    onInputChange,
+    onCreateAccount,
+    errors } = CreateAccountFormProps
+
+  const { username, password, email } = accountForm
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const target = event.target.name;
+    const value = event.target.value;
     onInputChange(target, value);
   };
 
-  const specificError = (text) => {
-    let CurrentError;
-    errors.forEach((error) => {
+  const specificError = (text: String) => {
+    let CurrentError: string | undefined = undefined;
+    errors.forEach((error: any) => {
       if (error === text) {
         CurrentError = error;
         return CurrentError;
@@ -29,14 +34,14 @@ const CreateAccountForm = ({
   };
 
   return (
-    <form onSubmit={(e) => onCreateAccount(e)}>
+    <form onSubmit={(event) => onCreateAccount(event)}>
       <TextField
         sx={{ margin: "1rem" }}
         id="outlined-search"
         name="username"
         label="User name"
         type="text"
-        value={accountForm.username}
+        value={username}
         onChange={handleChange}
         required={true}
       />
@@ -47,7 +52,7 @@ const CreateAccountForm = ({
         name="password"
         label="password"
         type="password"
-        value={accountForm.password}
+        value={password}
         onChange={handleChange}
         required={true}
       />
@@ -57,7 +62,7 @@ const CreateAccountForm = ({
         name="email"
         label="Email"
         type="text"
-        value={accountForm.email}
+        value={email}
         onChange={handleChange}
         required={true}
       />

@@ -1,17 +1,10 @@
-import { userType } from "../../GeneralTypes/GeneralTypes";
+export type ErrorState = MyErrorType | null;
 
-   export type LoginProps = {
-    onLogOrCreate: (user: userType) => void,
-    loggedOrCreated: boolean
-  }
+interface MyErrorType {
+  error: String;
+}
 
-  export type ErrorState = MyErrorType | null;
-
-  interface MyErrorType {
-    error: String
-  }
-
-  export interface InputLoginForm {
-    username: string;
-    password: string;
-  }
+export interface InputLoginForm {
+  username: string;
+  password: string;
+}

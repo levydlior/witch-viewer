@@ -14,9 +14,10 @@ import {
   LoginOrCreateTitleDiv,
   LoginOrCreateButtonDiv
 } from "../../styles/GeneralComponents.styles";
-import { LoginProps, ErrorState, InputLoginForm } from "./Login.types";
+import { ErrorState, InputLoginForm } from "./Login.types";
+import { LoginAndCreateProps } from "../../GeneralTypes/GeneralTypes";
 
-const Login = (LoginProps: LoginProps) => {
+const Login = (LoginProps: LoginAndCreateProps) => {
   const { onLogOrCreate, loggedOrCreated } = LoginProps
   const [inputForm, setInputForm] = useState<InputLoginForm>({
     username: "",
