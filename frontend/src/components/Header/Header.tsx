@@ -9,8 +9,10 @@ import {
   WebHeaderImage,
   BurgerNav,
 } from "./Header.styles";
+import { HeaderProps } from "../../GeneralTypes/GeneralTypes";
 
-const Header = ({ loggedUser, onLogOut }) => {
+const Header = (props: HeaderProps) => {
+  const { loggedUser, onLogOut } = props
   const history = useHistory();
   return (
     <WebHeader>
@@ -18,15 +20,14 @@ const Header = ({ loggedUser, onLogOut }) => {
         <WebHeaderImage src={logo} alt="Witch flying" />
         <h1>Witch Viewer</h1>
       </LogoTitleDiv>
-      {loggedUser ? (
+      {loggedUser && (
         <BurgerNav>
           <SideBurgerMenu
-            id="burger-icon"
             loggedUser={loggedUser}
             onLogOut={onLogOut}
           />
         </BurgerNav>
-      ) : null}
+      ) }
       <NavBar loggedUser={loggedUser} onLogOut={onLogOut} />
     </WebHeader>
   );
