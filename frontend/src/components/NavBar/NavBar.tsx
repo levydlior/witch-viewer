@@ -1,10 +1,11 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import { HandleLogOut } from "../SideBurgerMenu/SideBurgerMenu.requests";
-import {RegNav, Link} from './NavBar.styles'
+import { RegNav, Link } from './NavBar.styles'
 import { NavLinks } from "../SideBurgerMenu/SideBurgerMenu.styles";
+import { HeaderProps } from "../../GeneralTypes/GeneralTypes";
 
-const NavBar = ({ loggedUser, onLogOut }) => {
-
+const NavBar = (props: HeaderProps) => {
+  const { loggedUser, onLogOut } = props
   return (
     <RegNav data-testid="nav">
       {loggedUser ? (
@@ -28,7 +29,7 @@ const NavBar = ({ loggedUser, onLogOut }) => {
           </Link>
           <Link
             to="/"
-            onClick={(e) => HandleLogOut(e, onLogOut)}
+            onClick={(event: MouseEvent<HTMLAnchorElement>) => HandleLogOut(event, onLogOut)}
           >
             Logout
           </Link>

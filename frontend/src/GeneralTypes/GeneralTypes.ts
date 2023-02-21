@@ -7,3 +7,9 @@ export type userType = {
     onLogOrCreate: (user: userType) => void,
     loggedOrCreated: boolean
   }
+
+
+export interface HeaderProps {
+    onLogOut: () => void,
+    loggedUser: userType
+}
