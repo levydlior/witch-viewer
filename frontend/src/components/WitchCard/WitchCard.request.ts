@@ -1,4 +1,11 @@
-export const handleUnlike = (e, onLikeOrUnlike, witchId) => {
+import { WitchType } from "./WitchCard.types";
+import React from "react";
+
+export const handleUnlike = (
+  e: React.MouseEvent,
+  onLikeOrUnlike: (witch: WitchType) => void,
+  witchId: number | undefined
+) => {
   e.stopPropagation();
   fetch(`/likes/${witchId}`, {
     method: "DELETE",
@@ -11,7 +18,11 @@ export const handleUnlike = (e, onLikeOrUnlike, witchId) => {
   });
 };
 
-export const handleLikeClick = (e, witch, onLikeOrUnlike) => {
+export const handleLikeClick = (
+  e: React.MouseEvent,
+  witch: WitchType,
+  onLikeOrUnlike: (witch: WitchType) => void
+) => {
   e.stopPropagation();
   const witchObject = {
     name: witch.name,

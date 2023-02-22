@@ -1,11 +1,12 @@
 import React from "react";
-
+import { HeartProps } from "./Heart.types";
 import { EmptyHeart, LikedHeart } from "./Heart.styles";
 
-const Heart = ({ renderLikeOrNot, handleUnlike, handleLikeClick }) => {
+const Heart = (props: HeartProps) => {
+  const { renderLikeOrNot, handleUnlike, handleLikeClick } = props
   return (
     <>
-      {renderLikeOrNot() ? (
+      {renderLikeOrNot ? (
         <LikedHeart
           onClick={(e) => handleUnlike(e)}
           data-testid="liked-heart"

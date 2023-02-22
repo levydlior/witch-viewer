@@ -8,16 +8,19 @@ import {
   style,
   PopUpDetailsImage,
   LinksToSource,
-} from "./WitchDetailsPopUp.styles.js";
+} from "./WitchDetailsPopUp.styles";
+import { WitchDetailsProps } from "./WitchDetailsPopUp.types";
 
-export const WitchDetailsPopUp = ({
-  witchToken,
-  opening,
-  onClosing,
-  renderLikeOrNot,
-  handleUnlike,
-  handleLikeClick,
-}) => {
+export const WitchDetailsPopUp = (props: WitchDetailsProps) => {
+  const {
+    witchToken,
+    opening,
+    onClosing,
+    renderLikeOrNot,
+    handleUnlike,
+    handleLikeClick,
+  } = props
+
   const WITCHDETAILQUERY = gql`
   {
     tokens(where: { tokenID: "${witchToken}" }) {
@@ -33,9 +36,9 @@ export const WitchDetailsPopUp = ({
   }
 `;
 
-  const handleClose = (e) => {
+  const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
-    onClosing(e);
+    onClosing();
   };
 
   const { loading, data } = useQuery(WITCHDETAILQUERY);

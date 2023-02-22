@@ -3,17 +3,19 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { WitchDetailsPopUp } from "../WitchDetailsPopUp/WitchDetailsPopUp";
 import Heart from "../Heart/Heart";
 import { WitchCardDiv } from "./WitchCard.styles";
-import { handleUnlike, handleLikeClick } from "./WitchCard.requests";
+import { handleUnlike, handleLikeClick } from "./WitchCard.request";
+import { WitchCardProps } from "./WitchCard.types";
 
-const WitchCard = ({
-  witch,
-  likedWitches,
-  onLikeOrUnlike,
-  loadingLikedWitches,
-}) => {
+
+const WitchCard = (props: WitchCardProps) => {
+  const { witch,
+    likedWitches,
+    onLikeOrUnlike,
+    loadingLikedWitches } = props
   const [open, setOpen] = useState(false);
 
-  let witchId = null;
+  let witchId: undefined | number = undefined;
+  
   const renderLikeOrNot = () => {
     for (let like = 0; like < likedWitches.length; like++) {
       if (likedWitches[like].tokenID === witch.tokenID) {
@@ -43,9 +45,9 @@ const WitchCard = ({
             <div className="witch-title">
               <h3>{witch.name}</h3>
               <Heart
-                renderLikeOrNot={renderLikeOrNot}
-                handleUnlike={(e) => handleUnlike(e, onLikeOrUnlike, witchId)}
-                handleLikeClick={(e) =>
+                renderLikeOrNot={renderLikeOrNot()}
+                handleUnlike={(e: React.MouseEvent) => handleUnlike(e, onLikeOrUnlike, witchId)}
+                handleLikeClick={(e: React.MouseEvent) =>
                   handleLikeClick(e, witch, onLikeOrUnlike)
                 }
               />
@@ -55,9 +57,9 @@ const WitchCard = ({
             witchToken={witch.tokenID}
             opening={open}
             onClosing={handleOutDivClick}
-            renderLikeOrNot={renderLikeOrNot}
-            handleUnlike={(e) => handleUnlike(e, onLikeOrUnlike, witchId)}
-            handleLikeClick={(e) => handleLikeClick(e, witch, onLikeOrUnlike)}
+            renderLikeOrNot={renderLikeOrNot()}
+            handleUnlike={(e: React.MouseEvent) => handleUnlike(e, onLikeOrUnlike, witchId)}
+            handleLikeClick={(e: React.MouseEvent) => handleLikeClick(e, witch, onLikeOrUnlike)}
           />
         </>
       )}
