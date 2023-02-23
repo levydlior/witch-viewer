@@ -5,20 +5,24 @@ import {
   WitchListContainer,
   MainPageTitleDiv,
 } from "../MainPage/MainPage.styles";
-import { FetchPopularWitches } from "./PopularWitches.requests";
+import { FetchPopularWitches } from "./PopularWitches.request";
+import { PopularWitchesProps } from "./PopularWitches.types";
+import { WitchType } from "../WitchCard/WitchCard.types";
 
-const PopularWitches = ({
-  likedWitches,
-  onLikeOrUnlike,
-  loadingLikedWitches,
-}) => {
-  const [popularWitches, setPopularWitches] = useState([]);
+const PopularWitches = (
+  props: PopularWitchesProps
+) => {
+  const { likedWitches,
+    onLikeOrUnlike,
+    loadingLikedWitches } = props
+
+  const [popularWitchesList, setPopularWitchesList] = useState<WitchType[]>([]);
 
   useEffect(() => {
-    FetchPopularWitches(setPopularWitches);
+    FetchPopularWitches(setPopularWitchesList);
   }, [likedWitches]);
 
-  const popularWitchesList = popularWitches.map((witch) => {
+  const renderPopularWitchesListList = popularWitchesList.map((witch: WitchType) => {
     if (witch.number_of_likes >= 5) {
       return (
         <WitchCard
@@ -37,7 +41,7 @@ const PopularWitches = ({
       <MainPageTitleDiv>
         <h2>Most Popular Witches</h2>
       </MainPageTitleDiv>
-      <WitchListContainer>{popularWitchesList}</WitchListContainer>
+      <WitchListContainer>{renderPopularWitchesListList}</WitchListContainer>
     </MainPageWitchesDiv>
   );
 };

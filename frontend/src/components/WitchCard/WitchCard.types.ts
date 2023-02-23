@@ -1,4 +1,5 @@
 export type WitchType = {
+  number_of_likes: number;
   name: string;
   tokenID: string;
   image: string;
