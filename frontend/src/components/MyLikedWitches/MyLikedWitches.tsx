@@ -5,13 +5,16 @@ import {
   WitchListContainer,
   MainPageTitleDiv,
 } from "../MainPage/MainPage.styles";
+import { PopularWitchesProps } from "../PopularWitches/PopularWitches.types";
+import { WitchType } from "../WitchCard/WitchCard.types";
 
-const MyLikedWitches = ({
-  likedWitches,
-  onLikeOrUnlike,
-  loadingLikedWitches,
-}) => {
-  const likedWitchesList = likedWitches.map((witch) => {
+const MyLikedWitches = (props: PopularWitchesProps) => {
+
+  const { likedWitches,
+    onLikeOrUnlike,
+    loadingLikedWitches } = props
+
+  const renderLikedWitchesList = likedWitches.map((witch: WitchType) => {
     return (
       <WitchCard
         witch={witch}
@@ -33,7 +36,7 @@ const MyLikedWitches = ({
         {likedWitches.length === 0 ? (
           <h3>You don't have any favorite witches yet</h3>
         ) : (
-          <> {likedWitchesList} </>
+          <> {renderLikedWitchesList} </>
         )}
       </WitchListContainer>
     </MainPageWitchesDiv>
