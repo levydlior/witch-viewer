@@ -5,3 +5,12 @@ export interface MainPageProps {
     onLikeOrUnlike: (witch: WitchType) => void;
     loadingLikedWitches: boolean
 }
+
+export interface TokensData {
+    tokens: {
+      name: string;
+      image: string;
+      tokenID: number;
+    }[];
+  }
+  

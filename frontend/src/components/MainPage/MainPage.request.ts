@@ -1,4 +1,5 @@
 import { gql } from "@apollo/client";
+import { TokensData } from "./MainPage.types";
 
 export const WITCHQUERY = gql`
   query Token($first: Int!, $skip: Int) {
@@ -9,14 +10,6 @@ export const WITCHQUERY = gql`
     }
   }
 `;
-
-interface TokensData {
-  tokens: {
-    name: string;
-    image: string;
-    tokenID: number;
-  }[];
-}
 
 export const fetchMoreWitches = (
   fetchMore: (arg0: {
