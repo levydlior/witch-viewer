@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# Witch Viewer
+ 
+A place where you can interact with those wild mythical tokens
+ 
+# Table of Contents
+ 
+<ul>
+  <li>General Info</li>
+  <li>Technologies</li>
+  <li>Setup</li>
+  <li>Features</li>
+  <li>Improvements for future</li>
+  <li>Video</li>
+  <li>Contacts</li>
+</ul>
+ 
+# General Info
+ 
+This web app is designed to allow the user to interact with nfts that are queried from a third party api using the crypto coven nfts. I made this app as my final project for Flatiron school
+ 
+# Technologies
+ 
+<ul>
+<li>React</li>
+<li>React Apollo</li>
+<li>TypeScript</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>Styled Components</li>
+<li>MUI</li>
+<li>Javascript</li>
+<li>Rails</li>
+<li>Ruby</li>
+<li>Graphql</li>
+<li>Jest</li>
+<li>postgresql</li>
+</ul>
+ 
+# Setup
+ 
+To run this project: <ol>
+  <li>You need to have postgresql installed on your device</li>
+  <li>Clone the repo to your computer</li>
+  <li>(assuming you have postgresql) In the terminal run sudo service postgresql start (you'll need to enter your user's password)</li>
+  <li>In the root directory run bundle install</li>
+  <li>In the root directory run rails db:migrate db:seed</li>
+  <li>Cd into the frontend directory</li>
+  <li>In the frontend directory run npm install</li>
+  <li>In the root directory run rails s</li>
+  <li>Open another terminal, go to the frontend directory and run npm start</li>
+  <li>Go to http://localhost:4000/</li>
+  <li>Create an account and enjoy!</li>
+  </ol>
+ 
+# Features
+ 
+<ul>
+  <li>Create an account / login / logout (auth)</li>
+  <li>Infintie scroll with Graphql queries</li>
+  <li>like witches and then view them in your favorite witches section</li>
+  <li>See the most liked witches</li>
+  <li>Click on a witch and see more details about it</li>
+  <li>Click on a link on the witch details card that directs you to open sea or the witch source on crypto coven website</li>
+  <li>Responsive design</li>
+</ul>
+ 
+# Improvements for future
+ 
+<ul>
+<li>Refactoring the code even further -- Even though I re used many components, I also repeated some</li>
+<li>Using styled components or individual css style attached to each component to keep the styling and editing organized and easier to access</li>
+</ul>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Video
+<a href="https://www.loom.com/share/1cd02778f1b74c5ba5356b6421dcc3ee/" target="_blank">Website features</a>
+ 
+# Contacts
+ 
+Created by <br>
+<a href="https://www.linkedin.com/in/liordl/" target="_blank">Lior Levy</a><br>
+ 
 
-In the project directory, you can run:
+credits:
 
-### `npm start`
+witch gif: https://community.king.com/en/bubble-witch-saga/discussion/255975/the-best-witch-gifs
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+third party api:
+https://www.cryptocoven.xyz/
+https://github.com/dabit3/cryptocoven-api
