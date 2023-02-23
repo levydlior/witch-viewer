@@ -23,6 +23,7 @@ This web app is designed to allow the user to interact with nfts that are querie
 <ul>
 <li>React</li>
 <li>React Apollo</li>
+<li>TypeScript</li>
 <li>HTML</li>
 <li>CSS</li>
 <li>Styled Components</li>

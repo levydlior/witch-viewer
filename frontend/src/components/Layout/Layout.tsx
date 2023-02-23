@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Switch } from "react-router";
-import MainPage from "./../MainPage/MainPage";
+import MainPage from "../MainPage/MainPage";
 import { Route } from "react-router";
-import Login from "./../Login/Login";
-import CreateAccount from "./../CreateAnAccount/CreateAccount";
-import Header from "./../Header/Header";
+import Login from "../Login/Login";
+import CreateAccount from "../CreateAnAccount/CreateAccount";
+import Header from "../Header/Header";
 import { useHistory } from "react-router-dom";
-import MyLikedWitches from "./../MyLikedWitches/MyLikedWitches";
-import PopularWitches from "./../PopularWitches/PopularWitches";
+import MyLikedWitches from "../MyLikedWitches/MyLikedWitches";
+import PopularWitches from "../PopularWitches/PopularWitches";
 import { fetchLoggedUser, fetchLikedWitches } from "./Layout.request";
+import { WitchType } from "../WitchCard/WitchCard.types";
+import { userType } from "../../GeneralTypes/GeneralTypes";
+
 
 const Layout = () => {
-  const [loggedUser, setLoggedUser] = useState(null);
-  const [auth, setAuth] = useState(false);
-  const [loggedOrCreated, setLoggedOrCreated] = useState(false);
-  const [likedWitches, setLikedWitches] = useState([]);
-  const [loadingLikedWitches, setLoadingLikedWitches] = useState(true);
+  const [loggedUser, setLoggedUser] = useState<userType | undefined>(undefined);
+  const [auth, setAuth] = useState<boolean>(false);
+  const [loggedOrCreated, setLoggedOrCreated] = useState<boolean>(false);
+  const [likedWitches, setLikedWitches] = useState<WitchType[]>([]);
+  const [loadingLikedWitches, setLoadingLikedWitches] = useState<boolean>(true);
 
   useEffect(() => {
     fetchLoggedUser(setAuth, setLoggedUser);
@@ -26,17 +29,16 @@ const Layout = () => {
       setLoadingLikedWitches(true);
       fetchLikedWitches(setLikedWitches, setLoadingLikedWitches);
     },
-    [loggedUser],
-    [loggedOrCreated]
+    [loggedUser, loggedOrCreated]
   );
 
   const handleLogOut = () => {
-    setLoggedUser(null);
+    setLoggedUser(undefined);
     setLoggedOrCreated(false);
     history.push("/login");
   };
 
-  const onLikeOrUnlike = (witch) => {
+  const onLikeOrUnlike = (witch: WitchType) => {
     const existedLikedWitch = likedWitches.find(
       (liked) => liked.id === witch.id
     );
@@ -49,8 +51,8 @@ const Layout = () => {
   };
 
   const history = useHistory();
-  const handleLogOrCreate = (user) => {
-    setLoggedOrCreated(user);
+  const handleLogOrCreate = (user: userType) => {
+    setLoggedOrCreated(true);
     setTimeout(() => {
       setLoggedUser(user);
       history.push("/");
